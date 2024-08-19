@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orefile General Dealer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+  @media (min-width: 321px) {
+  * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Baskerville SC', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #003300; /* Dark green header */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #003300; /* Slightly darker green for border */
+            color: #fff;
+            font-size: 18px;
+            position: relative;
+            top: 0; /* Positions it at the top of the page */
+            width: 100%; /* Ensures it spans the full width of the viewport */
+            z-index: 1000
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 1em;
+            width: 200px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #003300;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .cart {
+    display: flex;
+    align-items: center;
+}
+
+#cart-button {
+    background-color: #9a1e1e; /* Your preferred color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#cart-button:hover {
+    background-color: #0a3cff; /* A darker shade on hover */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    #cart-button {
+        padding: 8px 16px; /* Smaller padding */
+        font-size: 14px;   /* Smaller font size */
+    }
+}
+
+    .fa-shopping-cart {
+        margin-right: 8px; /* Space between the icon and text */
+        animation: bounce 1s infinite;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+    
+    #cart-count {
+        font-weight: bold;
+    }
+
+        .nav-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #000000;
+            color: #fff;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .mobile-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            display: block;
+        }
+
+        .mobile-menu a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+        padding: 20px;
+        background-color: #f9f9f9; /* Light background for contrast */
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .product {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        max-width: 300px;
+    }
+
+    .product img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .product h2 {
+        font-size: 18px;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .product p {
+        font-size: 16px;
+        color: #666;
+        margin: 5px 0;
+    }
+
+    .add-to-cart {
+        background-color: #0a3cff; /* Blue button background */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .add-to-cart:hover {
+        background-color: #9a1e1e; /* Darker blue on hover */
+        transform: scale(1.05); /* Slightly enlarge button on hover */
+    }
+
+    .product:hover {
+        transform: translateY(-5px); /* Lift the card on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .modal-content .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #003300;
+        }
+
+        footer {
+            background-color: #003300; /* Adjusted for visibility */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar input[type="text"] {
+                width: 150px;
+                font-size: 0.9em;
+            }
+
+            .search-bar button, .cart button {
+                font-size: 0.9em;
+            }
+
+            .product {
+                width: 180px;
+            }
+
+            .modal-content {
+                width: 90%;
+                padding: 10px;
+            }
+
+            .modal-content .close {
+                top: 5px;
+                right: 5px;
+            }
+
+            .modal-content button {
+                padding: 8px 16px;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+/* Basic styling for input container */
+.InputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the input */
+.input {
+    padding: 10px 40px 10px 10px; /* Add padding on the right for the icon */
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: #004d00; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Style for the search icon */
+.search-icon {
+    position: absolute;
+    right: 10px; /* Position it within the input field */
+    font-size: 16px; /* Adjust size as needed */
+    color: #aaa; /* Icon color */
+    cursor: pointer;
+}
+
+/* Style for search results container */
+.search-results {
+    position: absolute;
+    top: 100%; /* Position below the input */
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Style for individual search result items */
+.search-results .result-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-results .result-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show results container */
+.search-results.show {
+    opacity: 1;
+    visibility: visible;
+}
+  }
+  .menu {
+    position: relative;
+    z-index: 999; 
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #003300;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1001;
+}
+
+.mobile-menu a, .mobile-menu .cart {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1002; 
+}
+
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    .nav-toggle {
+        display: block;
+    }
+}
+
+.cart {
+    display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    .cart {
+        display: none;
+    }
+}
+.search input[type="search"] {
+    color: #191e21;
+    width: 70%;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+}
+
+.search button {
+    border-radius: 5px;
+    background: #9a1e1e;
+    color: #fff;
+    width: 25%;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+    padding: 10px;
+}
+
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #004d00;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .instructions {
+            margin-bottom: 20px;
+            color: #666;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus {
+            border-color: #004d00;
+            outline: none;
+        }
+
+        #proceed-button {
+            background-color: #004d00;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        #proceed-button.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #proceed-button:hover {
+            background-color: #003300;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Orefile General Dealer</div>
+        <div class="InputContainer">
+            <div class="col-10 search">
+                <form class="form-inline" action="#" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>                
+        </div>        
+        <div class="cart">
+            <button id="cart-button">
+                <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+            </button>
+        </div>
+        <div class="menu" id="menu">
+            <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+            <nav class="nav-menu">
+                <a href="./index.html">Home</a>
+                <a href="./deals.html">Deals</a>
+                <a href="./foods.html">Food</a>
+                <a href="./bevr.html">Beverages</a>
+                <a href="./household.html">Household</a>
+                <a href="./popular.html">Most Popular</a>
+                <a href="./orders.html">My Orders</a>
+            </nav>
+            <nav class="mobile-menu" id="mobile-menu">
+                <a href="./deals.html">Deals</a>
+                <a href="./food.html">Food</a>
+                <a href="./beverages.html">Beverages</a>
+                <a href="./household.html">Household</a>
+                <a href="./popular.html">Most Popular</a>
+                <a href="./orders.html">My Orders</a>
+                <div class="cart">
+                    <button id="cart-button">
+                        <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+    </header>
+ <!-- page -->
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+      <div class="container">
+        <ul class="w3_short">
+          <li>
+            <a href="index.html">Home</a>
+            <i>|</i>
+          </li>
+          <li>Make Your Payment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- payment page -->
+  <div class="privacy py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2">
+      <!-- title heading -->
+      <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+        <span>P</span>ayment Methods
+      </h3>
+  
+      <div class="checkout-right">
+        <div id="parentHorizontalTab">
+          <ul class="resp-tabs-list hor_1">
+            <li>Cash on Delivery (COD)</li>
+            <li>Credit/Debit Card</li>
+            <li>SASSA Card</li>
+            <li>PayFast Account</li>
+          </ul>
+          <div class="resp-tabs-container hor_1">
+            <!-- COD Section -->
+            <div>
+              <div class="vertical_post check_box_agile">
+                <h5>COD</h5>
+                <div class="checkbox">
+                  <div class="check_box_one cashon_delivery">
+                    <label class="anim">
+                      <input type="checkbox" class="checkbox">
+                      <span> We also accept Credit/Debit cards on delivery. Please check with the agent.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Credit/Debit Card Section -->
+            <div>
+              <form action="#" method="post" class="creditly-card-form agileinfo_form">
+                <div class="creditly-wrapper wthree w3_agileits_wrapper">
+                  <div class="credit-card-wrapper">
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="control-label">Name on Card</label>
+                        <input class="billing-address-name form-control" type="text" name="name" placeholder="John Doe">
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label">Card Number</label>
+                        <input class="number credit-card-number form-control" type="text" name="number" placeholder="•••• •••• •••• ••••">
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label">CVV</label>
+                        <input class="security-code form-control" type="text" name="security-code" placeholder="•••">
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label">Expiration Date</label>
+                        <input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+                      </div>
+                    </div>
+                    <button class="submit mt-3">
+                      <span>Make a Payment</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+  
+            <!-- Internet Banking Section -->
+            <div>
+              <div class="vertical_post">
+                <form action="#" method="post">
+                  <h5>Select From Popular Banks</h5>
+                  <div class="swit-radio">
+                    <div class="check_box_one">
+                      <div class="radio_one">
+                        <label>
+                          <input type="radio" name="radio" checked="">
+                          <i></i>Standard Bank
+                        </label>
+                      </div>
+                    </div>
+                    <div class="check_box_one">
+                      <div class="radio_one">
+                        <label>
+                          <input type="radio" name="radio">
+                          <i></i>Nedbank
+                        </label>
+                      </div>
+                    </div>
+                    <div class="check_box_one">
+                      <div class="radio_one">
+                        <label>
+                          <input type="radio" name="radio">
+                          <i></i>FNB
+                        </label>
+                      </div>
+                    </div>
+                    <div class="check_box_one">
+                      <div class="radio_one">
+                        <label>
+                          <input type="radio" name="radio">
+                          <i></i>Tyme Bank
+                        </label>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <input type="submit" value="PAY NOW">
+                </form>
+              </div>
+            </div>
+  
+            <!-- PayFast Account Section -->
+            <div>
+              <div id="tab4" class="tab-grid">
+                <div class="row">
+                  <div class="col-md-6 pay-forms">
+                    <img class="pp-img" src="images/paypal.png" alt="PayFast">
+                    <p>Important: You will be redirected to PayFast's website to securely complete your payment.</p>
+                    <a class="btn btn-primary">Checkout via PayFast</a>
+                  </div>
+                  <div class="col-md-6 number-paymk">
+                    <form action="#" method="post" class="creditly-card-form-2 shopf-sear-headinfo_form">
+                      <section class="creditly-wrapper payf_wrapper">
+                        <div class="credit-card-wrapper">
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label class="control-label">Card Holder </label>
+                              <input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label">Card Number</label>
+                              <input class="number credit-card-number-2 form-control" type="text" name="number" placeholder="•••• •••• •••• ••••">
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label">CVV</label>
+                              <input class="security-code-2 form-control" type="text" name="security-code" placeholder="•••">
+                            </div>
+                            <div class="form-group">
+                              <label class="control-label">Valid Thru</label>
+                              <input class="expiration-month-and-year-2 form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+                            </div>
+                          </div>
+                          <input class="submit" type="submit" value="Proceed Payment">
+                        </div>
+                      </section>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CSS -->
+  <style>
+    .services-breadcrumb {
+      background: #f5f5f5;
+      padding: 20px 0;
+    }
+  
+    .services-breadcrumb ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+  
+    .services-breadcrumb ul li {
+      display: inline;
+      color: #000;
+    }
+  
+    .services-breadcrumb ul li a {
+      color: #3498db;
+      text-decoration: none;
+    }
+  
+    .privacy {
+      background-color: #fff;
+      padding: 50px 0;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .container {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .tittle-w3l {
+      color: #333;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  
+    .resp-tabs-list {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .resp-tabs-list li {
+      background: #f5f5f5;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .resp-tabs-list li:hover {
+      background: #3498db;
+      color: #fff;
+    }
+  
+    .resp-tabs-container > div {
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 5px;
+      margin-top: 10px;
+      width: 100%;
+    }
+  
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  
+    .form-group {
+      flex: 1 1 calc(50% - 10px);
+      margin-bottom: 15px;
+    }
+  
+    .controls label {
+      font-weight: bold;
+    }
+  
+    .billing-address-name,
+    .number,
+    .security-code,
+    .expiration-month-and-year {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .submit {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  
+    .submit:hover {
+      background-color: #2980b9;
+    }
+  
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+      }
+  
+      .form-group {
+        width: 100%;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .submit {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+  
+  <!-- JavaScript -->
+  <script>
+    const tabs = document.querySelectorAll(".resp-tabs-list li");
+    const contents = document.querySelectorAll(".resp-tabs-container > div");
+  
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+  
+        tab.classList.add("active");
+        contents[index].classList.add("active");
+      });
+    });
+
+    
+  </script>
+  
+</body>
+</html>  

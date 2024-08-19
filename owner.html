@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlapeng Digital Tuckshop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 2rem;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        button {
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+        .product-item, .inventory-item, .sales-item {
+            background-color: white;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tlapeng Digital Tuckshop</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#inventory">Inventory</a></li>
+                <li><a href="#sales">Sales</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div id="dashboard-content"></div>
+        </section>
+        <section id="products">
+            <h2>Products</h2>
+            <button onclick="showProductForm()">Add Product</button>
+            <div id="product-list"></div>
+            <div id="product-form" style="display:none;">
+                <form onsubmit="addProduct(event)">
+                    <input type="text" id="product-name" placeholder="Product Name" required>
+                    <input type="number" id="product-price" placeholder="Price (ZAR)" required>
+                    <input type="number" id="product-quantity" placeholder="Quantity" required>
+                    <input type="file" id="product-image" accept="image/*" required>
+                    <button type="submit">Add Product</button>
+                </form>
+            </div>
+        </section>
+        <section id="inventory">
+            <h2>Inventory</h2>
+            <div id="inventory-list"></div>
+        </section>
+        <section id="sales">
+            <h2>Sales</h2>
+            <div id="sales-list"></div>
+        </section>
+    </main>
+    <script>
+        const products = [
+            { name: "Apple", price: 1.5, quantity: 100, image: "images/apples.jpg" },
+            { name: "Banana", price: 1.0, quantity: 150, image: "images/bananas.jpg" }
+        ];
+        const inventory = [
+            { name: "Apple", quantity: 100 },
+            { name: "Banana", quantity: 150 }
+        ];
+        const sales = [
+            { product: "Apple", quantity: 5, total: 7.5 },
+            { product: "Banana", quantity: 10, total: 10.0 }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            loadInventory();
+            loadSales();
+            updateDashboard();
+        });
+
+        function showProductForm() {
+            document.getElementById('product-form').style.display = 'block';
+        }
+
+        function addProduct(event) {
+            event.preventDefault();
+            const name = document.getElementById('product-name').value;
+            const price = document.getElementById('product-price').value;
+            const quantity = document.getElementById('product-quantity').value;
+            const image = document.getElementById('product-image').files[0];
+
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const product = { name, price, quantity, image: reader.result };
+                products.push(product);
+                updateProductList();
+                document.getElementById('product-form').style.display = 'none';
+            };
+            reader.readAsDataURL(image);
+        }
+
+        function updateProductList() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            products.forEach((product, index) => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+                productItem.innerHTML = `
+                    <p>${product.name} - R${product.price} - ${product.quantity} units</p>
+                    <img src="${product.image}" alt="${product.name}">
+                    <button onclick="deleteProduct(${index})">Delete</button>
+                `;
+                productList.appendChild(productItem);
+            });
+        }
+
+        function deleteProduct(index) {
+            products.splice(index, 1);
+            updateProductList();
+        }
+
+        function loadProducts() {
+            updateProductList();
+        }
+
+        function loadInventory() {
+            const inventoryList = document.getElementById('inventory-list');
+            inventoryList.innerHTML = '';
+            inventory.forEach(item => {
+                const inventoryItem = document.createElement('div');
+                inventoryItem.classList.add('inventory-item');
+                inventoryItem.innerHTML = `<p>${item.name} - ${item.quantity} units in stock</p>`;
+                inventoryList.appendChild(inventoryItem);
+            });
+        }
+
+        function loadSales() {
+            const salesList = document.getElementById('sales-list');
+            salesList.innerHTML = '';
+            sales.forEach(sale => {
+                const salesItem = document.createElement('div');
+                salesItem.classList.add('sales-item');
+                salesItem.innerHTML = `<p>Sold ${sale.quantity} units of ${sale.product} for R${sale.total}</p>`;
+                salesList.appendChild(salesItem);
+            });
+        }
+
+        function updateDashboard() {
+            const dashboardContent = document.getElementById('dashboard-content');
+            const totalSales = sales.reduce((sum, sale) => sum + sale.total, 0);
+            dashboardContent.innerHTML = `<p>Total Sales: R${totalSales.toFixed(2)}</p>`;
+        }
+    </script>
+</body>
+</html>

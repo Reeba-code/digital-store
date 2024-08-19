@@ -1,0 +1,929 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Orefile General Dealer</title>
+      <link rel="stylesheet" href="styles.css">
+      <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+      <style>
+          /* Styles for screens larger than 320px */
+  @media (min-width: 321px) {
+          /* General Reset */
+          * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+          }
+  
+          body {
+              font-family: 'Baskerville SC', serif;
+              background-color: #f4f4f4;
+              display: flex;
+              flex-direction: column;
+              min-height: 100vh;
+              color: #ffffff;
+          }
+  /* Base header styling */
+    /* Basic styling for header */
+    .header {
+            background-color: #004d00; /* Green background for the header */
+            color: #fff;
+            position: relative;
+            font-size: 22px;
+        }
+
+        /* Navbar container */
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navbar links */
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Show/hide hamburger menu */
+        .hamburger-menu {
+            display: none; /* Hide by default */
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hide menu by default */
+        .menu {
+            display: flex; /* Show menu items horizontally */
+            align-items: center;
+        }
+
+        /* Navigation list styling */
+        .navigation {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Horizontally align items */
+        }
+
+        .navigation li {
+            margin: 0;
+        }
+
+        .navigation a {
+            padding: 10px;
+            color: #fff;
+            display: block;
+        }
+
+        /* Hover effect */
+        .navigation a:hover {
+            background-color: #666; /* Change background on hover */
+        }
+
+        /* Right side buttons */
+        .nav-right {
+            display: flex;
+        }
+
+        .nav-brand {
+            font-size: 30px;
+            color: black;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        /* Show hamburger menu and hide regular menu on small screens */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block; /* Show on small screens */
+            }
+            .menu {
+                display: none; /* Hide the menu by default on small screens */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #444; /* Background color for the dropdown */
+                flex-direction: column; /* Align items vertically */
+            }
+            .menu.show {
+                display: flex; /* Show menu when hamburger is clicked */
+            }
+            .navigation {
+                flex-direction: column; /* Align menu items vertically */
+            }
+            .navigation li {
+                border-bottom: 1px solid #555; /* Add separation lines between items */
+            }
+        }
+            #form {
+  display: grid;
+  place-items: center;
+  width: 300px;
+  height: 472px;
+  padding: 25px;
+  background-color: #ffffff;
+  box-shadow: 0px 15px 60px #004d00;
+  outline: 1px solid #2b9962;
+  border-radius: 10px;
+  margin-top: -100px;
+}
+
+#form-body {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  left: 25px;
+  width: 230px;
+  margin: -156px auto 0 auto;
+}
+
+#welcome-lines {
+  text-align: center;
+  line-height: 1;
+}
+
+#welcome-line-1 {
+  color: #005700;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+#welcome-line-2 {
+  color: #000000;
+  font-size: 18px;
+  margin-top: 17px;
+  font-weight: bold;
+}
+
+#input-area {
+  margin-top: 40px;
+}
+
+.form-inp {
+  padding: 11px 25px;
+  background: transparent;
+  border: 1px solid #000000;
+  line-height: 1;
+  border-radius: 8px;
+}
+
+.form-inp:focus {
+  border: 1px solid #004d00;
+}
+
+.form-inp:first-child {
+  margin-bottom: 15px;
+}
+
+.form-inp input {
+  width: 100%;
+  background: none;
+  font-size: 13.4px;
+  color: #004d00;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-inp input:focus {
+  outline: none;
+}
+
+#submit-button-cvr {
+  margin-top: 20px;
+}
+
+#submit-button {
+  display: block;
+  width: 100%;
+  color: #004d00;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  padding: 14px 13px 12px 13px;
+  border: 0;
+  outline: 1px solid #004d00;
+  border-radius: 8px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all ease-in-out .3s;
+}
+
+#submit-button:hover {
+  transition: all ease-in-out .3s;
+  background-color: #004d00;
+  color: #161616;
+  cursor: pointer;
+}
+
+#forgot-pass {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#forgot-pass a {
+  color: #000000;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+#bar {
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  width: 28px;
+  height: 8px;
+  margin-left: -33px;
+  background-color: #004d00;
+  border-radius: 10px;
+}
+
+#bar:before,
+#bar:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #000000;
+  border-radius: 50%;
+}
+
+#bar:before {
+  right: -20px;
+}
+
+#bar:after {
+  right: -38px;
+}
+#signup-link{
+  color: rgb(0, 0, 0);
+}
+ 
+  /* Navbar container */
+  .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  /* Navbar links */
+  .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px;
+  }
+  
+  /* Show/hide hamburger menu */
+  .hamburger-menu {
+      display: none; /* Hide by default */
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: -50px;
+       z-index: 1000;
+  }
+  
+  /* Hide menu by default */
+  .menu {
+      display: flex; /* Show menu items horizontally */
+      align-items: center;
+  }
+  
+  /* Navigation list styling */
+  .navigation {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex; /* Horizontally align items */
+  }
+  
+  .navigation li {
+      margin: 0;
+  }
+  
+  .navigation a {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 5px; /* Adjust the value for more or less rounding */
+      text-decoration: none;
+      color: #ffffff; /* Adjust text color as needed */
+  }
+  
+  /* Hover effect */
+  .navigation a:hover {
+      height: 40px;
+      background-color: #880808; /* Change background on hover */
+      color: #ffffff; /* Ensure text color remains readable */
+  }
+  
+  /* Right side buttons */
+  .nav-right {
+      display: flex;
+  }
+  
+  .nav-brand {
+      font-size: 30px;
+      font-weight: bold;
+  }
+  
+  .btn {
+      padding: 10px 15px;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+  }
+  
+  .btn-login {
+      background-color: #880808; /* Blue background for login */
+  }
+  
+  .btn-signup {
+      background-color: #0047AB; /* Green background for sign-up */
+  }
+  
+  .btn:hover {
+      background-color: #004d00;
+      color: white;
+  }
+  
+  /* Responsive styling for smaller screens */
+  @media (max-width: 768px) {
+      .header {
+          font-size: 16px; /* Adjust font size for smaller screens */
+          padding: 8px; /* Reduce padding for smaller screens */
+      }
+  
+      .hamburger-menu {
+          display: block; /* Show on small screens */
+          margin-left: auto; /* Align to the right */
+           z-index: 1000;
+      }
+  
+      .menu {
+          display: none; /* Hide the menu by default on small screens */
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%; /* Full width for mobile */
+          background-color: #004d00; /* Background color for the dropdown */
+          flex-direction: column; /* Align items vertically */
+          text-align: center;
+      }
+  
+      .menu.show {
+          display: flex; /* Show menu when hamburger is clicked */
+      }
+  
+      .navigation {
+          flex-direction: column; /* Align menu items vertically */
+      }
+  
+      .navigation li {
+          border-bottom: 1px solid #ffffff; /* Add separation lines between items */
+      }
+  
+      .nav-right {
+          display: none; /* Hide right side buttons on small screens */
+      }
+  
+      .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+      }
+  
+      .navigation a {
+          padding: 10px;
+          text-align: left;
+          width: 100%; /* Full width for mobile */
+      }
+  }
+  
+          section {
+              position: relative;
+              padding: 50px 20px;
+              max-width: 1200px;
+              margin: 0 auto;
+              height: 400px; /* Adjust height as needed */
+              background-size: cover;
+              background-position: center;
+              color: #000000;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+  
+          section h2, section p {
+              margin: 0;
+              padding: 0;
+              z-index: 1; /* Ensure text is above background */
+          }
+  
+          h2 {
+              margin-bottom: 20px;
+              font-size: 2rem;
+              color: #000000;
+          }
+  
+          p {
+              color: #000000;
+              font-size: 1rem;
+          }
+  
+          .services {
+              text-align: center;
+          }
+  
+          .services-list {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+          }
+  
+          .service-item {
+              background-color: #f9f9f9;
+              padding: 20px;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              flex: 1 1 200px;
+              text-align: center;
+              color: #333;
+          }
+  
+          .service-item:hover {
+              background-color: #004d00;
+              color: #fff;
+          }
+  
+          .carousel {
+              position: relative;
+              max-width: 100%;
+              margin: 50px auto;
+              overflow: hidden;
+              border-radius: 8px;
+              height: 100vh; /* Adjust height as needed */
+          }
+  
+          .carousel-images {
+              display: flex;
+              transition: transform 0.5s ease-in-out;
+          }
+  
+          .carousel-images img {
+              background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+              height: 100%; /* Ensure images fill the height of the carousel */
+      width: auto; /* Maintain aspect ratio and fit within width */
+      max-width: 100%; /* Prevent images from exceeding carousel width */
+      object-fit: cover; /* Ensure images cover the container while maintaining aspect ratio */
+      border-radius: 8px;
+          }
+  
+          .carousel-buttons {
+              position: absolute;
+              top: 50%;
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              transform: translateY(-50%);
+          }
+  
+          .carousel-button {
+              background-color: rgba(0, 0, 0, 0.5);
+              border: none;
+              color: white;
+              padding: 10px;
+              cursor: pointer;
+          }
+  
+          .carousel-button:hover {
+              background-color: rgba(0, 0, 0, 0.8);
+          }
+  
+  
+          @media (max-width: 768px) {
+              .nav-right {
+                  display: none;
+              }
+  
+              .hamburger-menu {
+                  display: block;
+              }
+  
+              .navbar {
+                  flex-direction: column;
+                  align-items: flex-start;
+              }
+  
+              .menu {
+                  flex-direction: column;
+                  align-items: flex-end;
+                  display: none;
+                  text-align: center;
+              }
+  
+              .menu.open {
+                  display: flex;
+              }
+  
+              .navigation ul {
+                  flex-direction: column;
+                  width: 100%;
+              }
+  
+              .navigation li {
+                  width: 100%;
+              }
+  
+              .navigation li a {
+                  padding: 10px;
+                  text-align: left;
+                  width: 100%;
+              }
+          }
+  
+  #step-by-step-guide {
+      padding: 50px 20px;
+      background-color: none;
+      color: #000000;
+      margin-bottom: 200px;
+  }
+  
+  .guide-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: none; /* Ensure the background color covers the full width */
+      padding: 20px;
+  }
+  
+  .guide-steps {
+      list-style-type: none;
+      padding-left: 20px;
+  }
+  
+  .guide-steps li {
+      margin-bottom: 20px;
+  }
+  
+  .guide-steps h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #005700;
+  }
+  
+  .guide-steps p {
+      font-size: 18px;
+      line-height: 1.6;
+  }
+  
+  .h4 {
+      font-size: 18px;
+  }
+  
+  /* Responsive adjustments for mobile */
+  @media (max-width: 768px) {
+      #step-by-step-guide {
+          padding: 50px 10px; /* Adjust padding for smaller screens */
+      }
+  
+      .guide-container {
+          padding: 10px; /* Adjust container padding for smaller screens */
+      }
+  
+      .guide-steps h3 {
+          font-size: 1.25rem; /* Adjust font size for smaller screens */
+      }
+  
+      .guide-steps p {
+          font-size: 0.875rem; /* Adjust font size for smaller screens */
+      }
+  
+      .h4 {
+          font-size: 16px; /* Adjust font size for smaller screens */
+      }
+  }
+  
+  
+  .menu-s {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #ffffff;
+    width: fit-content;
+    display: flex;
+    list-style: none;
+    margin-top: -5.5px;
+  }
+  
+  .menu-s a {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  .menu-s .link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 36px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .menu-s .link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0047AB;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .menu-s .link svg {
+    width: 14px;
+    height: 14px;
+    fill: #000000;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .menu-s .item {
+    position: relative;
+  }
+  
+  .menu-s .item .submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    width: 100%;
+    overflow: hidden;
+  
+    background-color: #004d00; /* Dark background color */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1;
+    pointer-events: none;
+    list-style: none;
+  }
+  
+  .menu-s .item:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    border-top: transparent;
+    border-color: #004d00;
+  }
+  
+  .menu-s .item:hover .link {
+    color: #ffffff;
+    border-radius: 16px 16px 0 0;
+  }
+  
+  .menu-s .item:hover .link::after {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  
+  .menu-s .item:hover .link svg {
+    fill: #ffffff;
+    transform: rotate(-180deg);
+  }
+  
+  .submenu .submenu-item {
+    width: 100%;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    color: #ffffff;
+    z-index: 2000; /* Ensure the submenu is on top when hovered */
+   
+  }
+  
+  .submenu .submenu-link {
+    display: block;
+    padding: 12px 24px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    color: #ffffff; 
+    z-index: 2000; /* Ensure the submenu is on top when hovered */
+  }
+  
+  .submenu .submenu-item:last-child .submenu-link {
+    border-bottom: none;
+  }
+  
+  .submenu .submenu-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    width: 100%;
+    height: 100%;
+    background-color: #0a3cff;
+    z-index: -1;
+    transform-origin: left;
+    transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .submenu .submenu-link:hover:before {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  
+  .submenu .submenu-link:hover {
+    color: #000000;
+    z-index: 2000; /* Ensure the submenu is on top when hovered */
+  }
+  footer {
+              background-color: #004d00;
+              text-align: center;
+              padding: 20px 0;
+              margin-top: 50px;
+          }
+  
+          footer p {
+              margin: 0;
+              color: #ffffff;
+          }
+  }
+      </style>
+  </head>
+  <body>
+      <header class="header">
+          <div class="nav-container">
+              <div class="navbar">
+                  <a class="nav-brand" href="index.html">Orefile General Dealer</a>
+                  <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+                  <div class="menu" id="menu">
+                      <nav class="navbar">
+                          <ul class="navigation">
+                              <li><a href="./index.html">Home</a></li>
+                              <li><a href="./about.html">About Us</a></li>
+                              <li><a href="./faqs.html">FAQs</a></li>
+                              <li><a href="./contact.html">Contact</a></li>
+                              <div class="menu-s">
+                                  <div class="item">
+                                    <a href="#" class="link">
+                                      <span> Shop </span>
+                                      <svg viewBox="0 0 360 360" xml:space="preserve">
+                                        <g id="SVGRepo_iconCarrier">
+                                          <path
+                                            id="XMLID_225_"
+                                            d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+                                          ></path>
+                                        </g>
+                                      </svg>
+                                    </a>
+                                    <div class="submenu">
+                                        <div class="submenu-item">
+                                        <a href="./dashboard.html" class="submenu-link"> Groceries </a>
+                                      </div>
+                                      <div class="submenu-item">
+                                        <a href="./bills.html" class="submenu-link"> Pay bills </a>
+                                      </div>
+                                      <div class="submenu-item">
+                                          <a href="./electricity.html" class="submenu-link"> Electricity </a>
+                                      </div>
+                                      <div class="submenu-item">
+                                          <a href=".data.html" class="submenu-link"> Mobile data </a>
+                                      </div>
+                                      <div class="submenu-item">
+                                          <a href="./lotto.html" class="submenu-link"> Lottery tickets </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                          </ul>
+                          <div class="nav-right">
+                              <a href="./login.html" class="btn btn-login">Login</a>
+                              <a href="./signup.html" class="btn btn-signup">Sign up</a>
+                          </div>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </header>
+      
+
+    <main>
+        <div class="video-background">
+            <video autoplay muted loop id="bg-video">
+                <source src="images/Hello World.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+      <div id="form-ui" style="margin-top: 30px;"> <!-- Adjust margin-top as needed -->
+        <form action="" method="post" id="form" netlify>
+          <div id="form-body">
+            <div id="welcome-lines">
+              <div id="welcome-line-1">Orefile General Dealer</div>
+              <div id="welcome-line-2">Welcome Back!</div>
+            </div>
+            <div id="input-area">
+              <div class="form-inp">
+                <input placeholder="Email Address" type="text">
+              </div>
+              <div class="form-inp">
+                <input placeholder="Password" type="password">
+              </div>
+            </div>
+            <div id="submit-button-cvr">
+              <button id="submit-button" type="button" onclick="location.href='payment.html'">Login</button>
+            </div>
+            <div id="forgot-pass">
+              <a href=".forgot.html">Forgot password?</a>
+            </div>
+            <div id="bar"></div>
+            <div id="signup-link" style="text-align: center; margin-top: 10px;">
+              Don't have an account? <a href="signup.html">Sign up</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Mafikeng Digital Innovation Hub</p>
+    </footer>
+
+    <script>
+         function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            } else {
+                menu.classList.add('open');
+            }
+        }
+        // login.js
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get the username and password values
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    // Basic validation (you might want to expand this)
+    if (username && password) {
+        // Perform your login logic here
+        // For now, we'll just redirect to the dashboard
+        window.location.href = './payment.html';
+    } else {
+        alert('Please enter both username and password.');
+    }
+});
+    </script>
+</body>
+</html>
+
+ 

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #004d00;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .instructions {
+            margin-bottom: 20px;
+            color: #666;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus {
+            border-color: #004d00;
+            outline: none;
+        }
+
+        #proceed-button {
+            background-color: #004d00;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        #proceed-button.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #proceed-button:hover {
+            background-color: #003300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Information</h1>
+        <div class="instructions">
+            <p>Please enter your payment details below to proceed. Ensure all fields are filled out accurately to avoid any issues with processing your payment.</p>
+        </div>
+        <div class="payment-details" id="payment-details-form">
+            <h3>Enter Payment Details</h3>
+            <form id="details-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" placeholder="1234-5678-9012-3456" required>
+
+                <label for="expiry-date">Expiration Date</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+
+                <label for="cvv">CVV</label>
+                <input type="number" id="cvv" name="cvv" pattern="\d{3,4}" placeholder="123" required>
+
+                <label for="billing-address">Billing Address</label>
+                <input type="text" id="billing-address" name="billing-address" required>
+
+                <button type="button" id="proceed-button" disabled>Proceed to Payment</button>
+            </form>
+        </div>
+
+        <!-- Hidden Payment Form -->
+        <form action="https://sandbox.payfast.co.za/eng/process" method="post" id="payment-form">
+            <input type="hidden" name="merchant_id" value="10034468">
+            <input type="hidden" name="merchant_key" value="51hjizecfj8ux">
+            <input type="hidden" name="return_url" value="https://app.netlify.com/sites/tlapeng-digi-tuck/configuration/general/success.html">
+            <input type="hidden" name="cancel_url" value="https://app.netlify.com/sites/tlapeng-digi-tuck/configuration/general/cancel.html">
+            <input type="hidden" name="notify_url" value="https://app.netlify.com/sites/tlapeng-digi-tuck/configuration/general/notify.php">
+            <input type="hidden" name="amount" id="amount" value="">
+            <input type="hidden" name="item_name" id="item_name" value="">
+            <button type="submit" id="final-submit-button" style="display:none;">Submit Payment</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to format card number input
+        function formatCardNumber(value) {
+            return value.replace(/\D/g, '')               // Remove non-digit characters
+                        .match(/.{1,4}/g)              // Group by 4 digits
+                        .join('-');                   // Join with dash
+        }
+
+        // Function to format expiration date input
+        function formatExpiryDate(value) {
+            return value.replace(/\D/g, '')               // Remove non-digit characters
+                        .match(/.{1,2}/g)              // Group by 2 digits
+                        .join('/');                   // Join with slash
+        }
+
+        // Validate and format card number
+        document.getElementById('card-number').addEventListener('input', function(e) {
+            let value = e.target.value;
+            value = formatCardNumber(value);
+            e.target.value = value;
+        });
+
+        // Validate and format expiration date
+        document.getElementById('expiry-date').addEventListener('input', function(e) {
+            let value = e.target.value;
+            value = formatExpiryDate(value);
+            e.target.value = value;
+        });
+
+        // Enable the button when all required fields are filled
+        document.getElementById('details-form').addEventListener('input', function() {
+            const inputs = document.querySelectorAll('#details-form input');
+            let allFilled = true;
+            
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    allFilled = false;
+                }
+            });
+
+            const proceedButton = document.getElementById('proceed-button');
+            if (allFilled) {
+                proceedButton.disabled = false;
+                proceedButton.classList.add('enabled');
+            } else {
+                proceedButton.disabled = true;
+                proceedButton.classList.remove('enabled');
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('proceed-button').addEventListener('click', function() {
+            // Retrieve values from the form
+            const amount = '100.00'; // Example amount, replace with actual value
+            const itemName = 'Example Item'; // Example item name, replace with actual value
+
+            document.getElementById('amount').value = amount;
+            document.getElementById('item_name').value = itemName;
+
+            // Submit the payment form
+            document.getElementById('payment-form').submit();
+        });
+    </script>
+</body>
+</html>

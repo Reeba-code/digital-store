@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tlapeng Digital Tuckshop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+     /* Styles for screens larger than 320px */
+@media (min-width: 321px) {
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Baskerville SC', serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+/* Base header styling */
+.header {
+    background-color: #004d00; /* Green background for the header */
+    color: #ffffff;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Navbar container */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar links */
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Show/hide hamburger menu */
+.hamburger-menu {
+    display: none; /* Hide by default */
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -50px ;
+     z-index: 1000;
+}
+
+/* Hide menu by default */
+.menu {
+    display: flex; /* Show menu items horizontally */
+    align-items: center;
+}
+
+/* Navigation list styling */
+.navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Horizontally align items */
+}
+
+.navigation li {
+    margin: 0;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px; /* Adjust the value for more or less rounding */
+    text-decoration: none;
+    color: #ffffff; /* Adjust text color as needed */
+}
+
+/* Hover effect */
+.navigation a:hover {
+    height: 40px;
+    background-color: #880808; /* Change background on hover */
+    color: #ffffff; /* Ensure text color remains readable */
+}
+
+/* Right side buttons */
+.nav-right {
+    display: flex;
+}
+
+.nav-brand {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.btn-login {
+    background-color: #880808; /* Blue background for login */
+}
+
+.btn-signup {
+    background-color: #0047AB; /* Green background for sign-up */
+}
+
+.btn:hover {
+    background-color: #004d00;
+    color: white;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show on small screens */
+        margin-left: auto; /* Align to the right */
+        z-index: 1000;
+    }
+
+    .menu {
+        display: none; /* Hide the menu by default on small screens */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%; /* Full width for mobile */
+        background-color: #004d00; /* Background color for the dropdown */
+        flex-direction: column; /* Align items vertically */
+        text-align: center;
+    }
+
+    .menu.show {
+        display: flex; /* Show menu when hamburger is clicked */
+    }
+
+    .navigation {
+        flex-direction: column; /* Align menu items vertically */
+    }
+
+    .navigation li {
+        border-bottom: 1px solid #ffffff; /* Add separation lines between items */
+    }
+
+    .nav-right {
+        display: none; /* Hide right side buttons on small screens */
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation a {
+        padding: 10px;
+        text-align: left;
+        width: 100%; /* Full width for mobile */
+    }
+}
+
+        @media (max-width: 768px) {
+            .nav-right {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu {
+                flex-direction: column;
+                align-items: flex-end;
+                display: none;
+                text-align: center;
+            }
+
+            .menu.open {
+                display: flex;
+            }
+
+            .navigation ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navigation li {
+                width: 100%;
+            }
+
+            .navigation li a {
+                padding: 10px;
+                text-align: left;
+                width: 100%;
+            }
+        }
+        section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #004d00; /* Updated color */
+        }
+
+        p {
+            color: #000000;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            margin-bottom: 30px;
+        }
+
+        .about-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .mission, .vision, .values {
+            margin-bottom: 30px;
+        }
+
+        .mission h3, .vision h3, .values h3 {
+            color: #006400; /* Updated color */
+            margin-bottom: 10px;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex: 1 1 200px;
+            text-align: center;
+            color: #333;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .team-member h4 {
+            margin-bottom: 5px;
+            color: #004d00; /* Updated color */
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+        }
+        .services {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.service-item {
+    flex: 1 1 200px; /* Adjust the width as needed */
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+.service-item h3 {
+    margin: 1rem 0 0;
+    font-size: 1.25rem;
+}
+.about-content {
+            background-color: #faf0ff; /* Light blue */
+            padding: 20px;
+        }
+        .mission {
+            background-color: #ffc4c4; /* Bisque */
+            padding: 20px;
+        }
+        .vision {
+            background-color: rgb(170, 255, 0); /* Light goldenrod yellow */
+            padding: 20px;
+        }
+        .values {
+            background-color: #e6e6fa; /* Lavender */
+            padding: 20px;
+        }
+       /* Footer Styles */
+footer {
+    background: none;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+            .nav-right {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu {
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+            }
+
+            .menu.open {
+                display: flex;
+            }
+
+            .navigation ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navigation li {
+                width: 100%;
+            }
+
+            .navigation li a {
+                padding: 10px;
+                text-align: left;
+                width: 100%;
+            }
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-member {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 20px;
+            }
+        }
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center; /* Center cards horizontally */
+
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 350px; /* Height for content fit */
+  width: 1000px; /* Expanded width for more content */
+  max-width: 90vw; /* Ensure cards do not exceed viewport width */
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 400ms;
+  padding: 15px; /* Padding inside the card */
+  box-sizing: border-box; /* Include padding in width and height */
+}
+
+.card p.tip {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0; /* Remove margin for better alignment */
+}
+
+.card p.second-text {
+  font-size: 15px; /* Slightly larger for readability */
+  margin-top: 10px; /* Add space between tip and text */
+  line-height: 1.5; /* Improve text readability */
+}
+
+.card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+
+.cards .red {
+  background-color: #9a1e1e;
+  height: 50%;
+}
+
+.cards .blue {
+  background-color: #0a3cff;
+}
+
+.cards .green {
+  background-color: #28A745;
+}
+
+.cards .yellow {
+  background-color: #ffd700;
+}
+.menu-s {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #ffffff;
+  width: fit-content;
+  display: flex;
+  list-style: none;
+  margin-top: -5.5px;
+}
+
+.menu-s a {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.menu-s .link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 36px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu-s .link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a3cff;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu-s .link svg {
+  width: 14px;
+  height: 14px;
+  fill: #000000;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu-s .item {
+  position: relative;
+}
+
+.menu-s .item .submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  border-radius: 0 0 16px 16px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+  pointer-events: none;
+  list-style: none;
+  background-color: #004d00; /* Dark background color */
+}
+
+.menu-s .item:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  border-top: transparent;
+  border-color: #004d00;
+}
+
+.menu-s .item:hover .link {
+  color: #ffffff;
+  border-radius: 16px 16px 0 0;
+}
+
+.menu-s .item:hover .link::after {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.menu-s .item:hover .link svg {
+  fill: #ffffff;
+  transform: rotate(-180deg);
+}
+
+.submenu .submenu-item {
+  width: 100%;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.submenu .submenu-link {
+  display: block;
+  padding: 12px 24px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.submenu .submenu-item:last-child .submenu-link {
+  border-bottom: none;
+}
+
+.submenu .submenu-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  width: 100%;
+  height: 100%;
+  background-color: #0a3cff;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.submenu .submenu-link:hover:before {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.submenu .submenu-link:hover {
+    color: #000000;
+    z-index: 2000; /* Ensure the submenu is on top when hovered */
+}
+
+footer {
+            background-color: #004d00;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #fff;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="navbar">
+                <a class="nav-brand" href="index.html">Orefile General Dealer</a>
+                <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+                <div class="menu" id="menu">
+                    <nav class="navbar">
+                        <ul class="navigation">
+                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./about.html">About Us</a></li>
+                            <li><a href="./faqs.html">FAQs</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                        </ul>
+                        <div class="nav-right">
+                            <a href="./login.html" class="btn btn-login">Login</a>
+                            <a href="./signup.html" class="btn btn-signup">Sign up</a>
+                        </div>
+                        <div class="menu-s">
+                            <div class="item">
+                              <a href="#" class="link">
+                                <span> Shop </span>
+                                <svg viewBox="0 0 360 360" xml:space="preserve">
+                                  <g id="SVGRepo_iconCarrier">
+                                    <path
+                                      id="XMLID_225_"
+                                      d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+                                    ></path>
+                                  </g>
+                                </svg>
+                              </a>
+                              <div class="submenu">
+                                <div class="submenu-item">
+                                    <a href="./dashboard.html" class="submenu-link"> Groceries </a>
+                                  </div>
+                                <div class="submenu-item">
+                                  <a href="./prepaid.html" class="submenu-link"> Pay bills </a>
+                                </div>
+                                <div class="submenu-item">
+                                    <a href="./electricity.html" class="submenu-link"> Electricity </a>
+                                </div>
+                                <div class="submenu-item">
+                                    <a href=".data.html" class="submenu-link"> Mobile data </a>
+                                </div>
+                                <div class="submenu-item">
+                                    <a href="./lotto.html" class="submenu-link"> Lottery tickets </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cards">
+            <div class="card red">
+                <p class="tip">About Orefile General Dealer</p>
+                <p class="second-text">Orefile Digital Tuckshop is your neighborhood grocery store with a modern twist. We combine the convenience of online <br> 
+                    shopping with the personal touch of a local store, ensuring you get the best of both worlds. Our mission is to provide high-quality 
+                    groceries and exceptional customer service to our community.<br>
+                <br>Established in 2024, we have quickly become a trusted name in the community, known for our wide range of products, 
+                competitive prices, and reliable delivery services. Our goal is to make grocery shopping easier and more enjoyable for everyone.</p>
+                <p class="tip">Ka ga Orefile General Dealer</p>
+                <p class="second-text">
+                    orefile Digital Tuckshop ke lebenkele la korosari la mo lefelong la lona le le nang le dilo tsa segompieno. Re kopanya tsela e e motlhofo ya go dirisa Internet<br>
+                    go reka ka tsela e e tshwanang le ya lebenkele la mo lefelong la lona, go go tlhomamisetsa gore o tla bona dilo tse di molemo go gaisa tsotlhe. <br>Boikaelelo jwa rona ke go tlamela batho ba rona ka dijo tsa boleng jo bo kwa godimo le go ba direla ka tsela e e tlhomologileng.
+
+                     E re ka re tlhomilwe ka 2024, ka bonako fela re ne ra nna leina le le ikanyegang mo setšhabeng, re itsege ka mefuta e mentsi ya dilo tse re di rekang, ditlhwatlhwa tsa rona tse di gaisanang le tsa ba bangwe le ditirelo tse di ikanyegang tsa go tsamaisa dilwana.
+                    <br> Mokgele wa rona ke go dira gore go reka dijo go nne motlhofo e bile go itumedise mongwe le mongwe.</p>
+            </div>
+            <div class="card blue">
+                <p class="tip">Our Mission</p>
+                <p class="second-text">To deliver fresh and affordable groceries to our customers' doorsteps while fostering a sense of community and supporting local producers.</p>
+                <p class="tip">Tiro ya Rona</p>
+                <p class="second-text">
+                    Go isa dijo tse di foreše le tse di tlhwatlhwa e e kwa tlase kwa magaeng a bareki ba rona fa re ntse re rotloetsa boikutlo jwa go nna karolo ya setšhaba le go tshegetsa batlhagisi ba mo lefelong leo.</p>
+            </div>
+            <div class="card green">
+                <p class="tip">Our Vision</p>
+                <p class="second-text">To be the leading digital grocery store in the region, known for our commitment to quality, customer satisfaction, and innovation.</p>
+                <p class="tip">Pono ya Rona</p>
+                <p class="second-text">
+                    Go nna lebenkele la korosari la dijithale le le di gogang kwa pele mo kgaolong eno, le le itsegeng ka boineelo jwa rona mo boleng, go kgotsofatsa bareki le go dira dilo tse disha.</p>
+            </div>
+            <div class="card yellow">
+                <p class="tip">Our Values</p>
+                <p class="second-text">We believe in integrity, customer focus, and continuous improvement. Our values guide us in everything we do and help us build strong relationships with our customers and partners.</p>
+                <p class="tip">Mekgwa ya Rona ya Botlhokwa</p>
+                <p>  Re dumela mo bothokgaming, mo go tsepamiseng mogopolo mo badirising le mo go tokafatseng ka metlha. Melaometheo ya rona e re kaela mo go sengwe le sengwe se re se dirang e bile e re thusa go nna le dikamano tse di nonofileng le bareki le badirimmogo le rona.</p>
+            </div>
+        </div>
+       
+        <section class="services">
+            <h2>Our Services/Ditirelo Tsa Rona</h2>
+            <div class="services-container">
+                <div class="service-item">
+                    <img src="images/online.jpg" alt="Online Ordering">
+                    <h3>Online Ordering</h3>
+                    <p>Conveniently order your favorite items online from the comfort of your home.</p>
+                    <h3>Go reka ka Internet</h3>
+                    <p>Dira gore o kgone go reka dilo tse o di ratang mo Internet o ntse o le kwa gae.</p>
+
+                 </div>
+                <div class="service-item">
+                    <img src="images/delivery.jpg" alt="Home Delivery">
+                    <h3>Home Delivery</h3>
+                    <p>Enjoy fast and reliable delivery straight to your doorstep.</p>
+                    <h3>Go tsamaisa dilwana</h3>
+                    <p>Itumelele go romelelwa dilo ka bonako le ka tsela e e ka ikanngwang ka tlhamalalo kwa legaeng la gago.</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/fresh.jpg" alt="Fresh Produce">
+                    <h3>Fresh Produce</h3>
+                    <p>Get access to the freshest fruits and vegetables available.</p>
+                    <h3>maungo a a foreshe</h3>
+                    <p>Re go tshepisa gore re rekisa go ja maungo le merogo e e foreshe.</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/exclusive.png" alt="Exclusive Deals">
+                    <h3>Exclusive Deals</h3>
+                    <p>Take advantage of special discounts and promotions only for our customers.</p>
+                    <h3>ditlhwatlhwa tse di kwa tlase</h3>
+                    <p>Dirisa ditshenyegelo tse di kwa tlase tse di kgethegileng le dipapatso tse di direlwang bareki ba rona fela.</p>
+                </div>
+            </div>
+        </section>
+        
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mafikeng Digital Innovation Hub. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            } else {
+                menu.classList.add('open');
+            }
+        }
+
+        const carouselImages = document.querySelector('.carousel-images');
+        let counter = 0;
+
+        function autoSlide() {
+            if (counter >= carouselImages.children.length) {
+                counter = 0;
+            }
+            carouselImages.style.transition = "transform 0.5s ease-in-out";
+            carouselImages.style.transform = 'translateX(' + (-100 * counter) + '%)';
+            counter++;
+        }
+
+        setInterval(autoSlide, 3000); // Change image every 3 seconds
+    </script>
+</body>
+</html>

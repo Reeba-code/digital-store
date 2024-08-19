@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orefile General Dealer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Baskerville SC', serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Basic styling for header */
+        .header {
+            background-color: #005700; /* Green background for the header */
+            color: #fff;
+            position: relative;
+            font-size: 22px;
+        }
+
+        /* Navbar container */
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navbar links */
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Show/hide hamburger menu */
+        .hamburger-menu {
+            display: none; /* Hide by default */
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hide menu by default */
+        .menu {
+            display: flex; /* Show menu items horizontally */
+            align-items: center;
+        }
+
+        /* Navigation list styling */
+        .navigation {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Horizontally align items */
+        }
+
+        .navigation li {
+            margin: 0;
+        }
+
+        .navigation a {
+            padding: 10px;
+            color: #fff;
+            display: block;
+        }
+
+        /* Hover effect */
+        .navigation a:hover {
+            background-color: #666; /* Change background on hover */
+        }
+
+        /* Right side buttons */
+        .nav-right {
+            display: flex;
+        }
+
+        .nav-brand {
+            font-size: 30px;
+            color: black;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        /* Show hamburger menu and hide regular menu on small screens */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block; /* Show on small screens */
+            }
+            .menu {
+                display: none; /* Hide the menu by default on small screens */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #444; /* Background color for the dropdown */
+                flex-direction: column; /* Align items vertically */
+            }
+            .menu.show {
+                display: flex; /* Show menu when hamburger is clicked */
+            }
+            .navigation {
+                flex-direction: column; /* Align menu items vertically */
+            }
+            .navigation li {
+                border-bottom: 1px solid #555; /* Add separation lines between items */
+            }
+        }
+            #form {
+  display: grid;
+  place-items: center;
+  width: 300px;
+  height: 472px;
+  padding: 25px;
+  background-color: #ffffff;
+  box-shadow: 0px 15px 60px #005700;
+  outline: 1px solid #2b9962;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+
+#form-body {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  left: 25px;
+  width: 230px;
+  margin: -156px auto 0 auto;
+}
+
+#welcome-lines {
+  text-align: center;
+  line-height: 1;
+}
+
+#welcome-line-1 {
+  color: #005700;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+#welcome-line-2 {
+  color: #000000;
+  font-size: 18px;
+  margin-top: 17px;
+  font-weight: bold;
+}
+
+#input-area {
+  margin-top: 40px;
+
+}
+
+.form-inp {
+  padding: 11px 25px;
+  background: transparent;
+  border: 1px solid #000000;
+  line-height: 1;
+  border-radius: 8px;
+}
+
+.form-inp:focus {
+  border: 1px solid #00FF7F;
+}
+
+.form-inp:first-child {
+  margin-bottom: 15px;
+}
+
+.form-inp input {
+  width: 100%;
+  background: none;
+  font-size: 13.4px;
+  color: #005700;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-inp input:focus {
+  outline: none;
+}
+
+#submit-button-cvr {
+  margin-top: 20px;
+}
+
+#submit-button {
+  display: block;
+  width: 100%;
+  color: #005700;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+  padding: 14px 13px 12px 13px;
+  border: 0;
+  outline: 1px solid #005700;
+  border-radius: 8px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all ease-in-out .3s;
+}
+
+#submit-button:hover {
+  transition: all ease-in-out .3s;
+  background-color: #005700;
+  color: #161616;
+  cursor: pointer;
+}
+
+#forgot-pass {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#forgot-pass a {
+  color: #000000;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+#bar {
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  width: 28px;
+  height: 8px;
+  margin-left: -33px;
+  background-color: #005700;
+  border-radius: 10px;
+}
+
+#bar:before,
+#bar:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #000000;
+  border-radius: 50%;
+}
+
+#bar:before {
+  right: -20px;
+}
+
+#bar:after {
+  right: -38px;
+}
+#signup-link{
+  color: rgb(0, 0, 0);
+}
+        footer {
+            background-color: #005700;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+  
+    </style>
+</head>
+<body>
+
+    <!-- Header Start -->
+    <header class="header">
+        <div class="nav-container">
+            <nav class="navbar">
+                <a href="#" class="nav-brand">Orefile General Dealer</a>
+                <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+                <div class="menu" id="navMenu">
+                    <ul class="navigation">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./faqs.html">FAQs</a></li>
+                        <li><a href="./contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <main>
+       
+        
+      <div id="form-ui" style="margin-top: 30px;"> <!-- Adjust margin-top as needed -->
+        <form action="" method="post" id="form" netlify>
+          <div id="form-body">
+            <div id="welcome-lines">
+              <div id="welcome-line-1">Orefile General Dealer</div>
+              <div id="welcome-line-2">Welcome Back!</div>
+            </div>
+            <div id="input-area">
+                <div class="form-inp">
+                <input placeholder="Full Name" type="text">
+              </div>
+                <div class="form-inp">
+                <input placeholder="Email Address" type="text">
+              </div>
+              <div class="form-inp">
+                <input placeholder="Phone Number" type="text">
+              </div>
+              <div class="form-inp">
+                <input placeholder="Password" type="password">
+              </div>
+            </div>
+            <div id="submit-button-cvr">
+              <button id="submit-button" type="button" onclick="location.href='payment.html'">Sign Up</button>
+            </div>
+            <div id="bar"></div>
+            <div id="signup-link" style="text-align: center; margin-top: 10px;">
+              Already have an account? <a href="login.html"><br>
+                  Login here</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Mafikeng Digital Innovation Hub</p>
+    </footer>
+
+    <script>
+        // Toggle the menu on mobile
+        function toggleMenu() {
+            var navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("show");
+        }
+        // login.js
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get the username and password values
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    // Basic validation (you might want to expand this)
+    if (username && password) {
+        // Perform your login logic here
+        // For now, we'll just redirect to the dashboard
+        window.location.href = './dashboard.html';
+    } else {
+        alert('Please enter both username and password.');
+    }
+});
+    </script>
+</body>
+</html>
+
+ 

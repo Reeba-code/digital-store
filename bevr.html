@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orefile General Dealer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+  @media (min-width: 321px) {
+        * {
+                  box-sizing: border-box;
+                  margin: 0;
+                  padding: 0;
+              }
+      
+              body {
+                  font-family: 'Baskerville SC', serif;
+                  margin: 0;
+                  padding: 0;
+                  background-color: #f4f4f4;
+              }
+      
+              header {
+                  background-color: #003300; 
+                  padding: 20px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  border-bottom: 1px solid #003300; 
+                  color: #fff;
+                  font-size: 18px;
+                  position: relative;
+                  top: 0; 
+                  width: 100%; 
+                  z-index: 1000
+              }
+      
+              .logo {
+                  font-size: 1.5em;
+                  font-weight: bold;
+              }
+      
+              .search-bar {
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+              }
+      
+              .search-bar input[type="text"] {
+                  padding: 5px;
+                  font-size: 1em;
+                  width: 200px;
+                  border-radius: 20px;
+                  border: 1px solid #ddd;
+              }
+      
+              .search-bar button {
+                  padding: 5px 10px;
+                  font-size: 1em;
+                  cursor: pointer;
+                  background-color: #003300;
+                  color: #fff;
+                  border: none;
+                  border-radius: 20px;
+              }
+      
+              .cart {
+          display: flex;
+          align-items: center;
+      }
+      
+      #cart-button {
+          background-color: #9a1e1e; 
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          transition: background-color 0.3s ease;
+      }
+      
+      #cart-button:hover {
+          background-color: #0a3cff; 
+      }
+      
+     
+      @media (max-width: 768px) {
+          #cart-button {
+              padding: 8px 16px; 
+              font-size: 14px;   
+          }
+      }
+      
+          .fa-shopping-cart {
+              margin-right: 8px; 
+              animation: bounce 1s infinite;
+          }
+          
+          @keyframes bounce {
+              0%, 20%, 50%, 80%, 100% {
+                  transform: translateY(0);
+              }
+              40% {
+                  transform: translateY(-10px);
+              }
+              60% {
+                  transform: translateY(-5px);
+              }
+          }
+          
+          #cart-count {
+              font-weight: bold;
+          }
+      
+              .nav-toggle {
+                  display: none;
+                  cursor: pointer;
+                  font-size: 1.5em;
+              }
+      
+              .nav-menu {
+                  display: flex;
+                  gap: 20px;
+              }
+      
+              .nav-menu a {
+                  color: #fff;
+                  text-decoration: none;
+                  font-size: 1em;
+              }
+      
+              .nav-menu a:hover {
+                  text-decoration: underline;
+              }
+      
+              .mobile-menu {
+                  display: none;
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  width: 100%;
+                  background-color: #000000;
+                  color: #fff;
+                  flex-direction: column;
+                  gap: 10px;
+                  padding: 10px;
+              }
+      
+              .mobile-menu a {
+                  color: #fff;
+                  text-decoration: none;
+                  font-size: 1em;
+                  display: block;
+              }
+      
+              .mobile-menu a:hover {
+                  text-decoration: underline;
+              }
+      
+              main {
+              padding: 20px;
+              background-color: #f9f9f9; 
+          }
+      
+          .products {
+             margin-bottom: 100px;
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+              gap: 20px;
+              justify-items: center;
+          }
+      
+          .product {
+              background-color: #fff;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+              text-align: center;
+              max-width: 300px;
+          }
+      
+          .product img {
+              width: 100%;
+              height: auto;
+              display: block;
+          }
+      
+          .product h2 {
+              font-size: 18px;
+              margin: 10px 0;
+              color: #333;
+          }
+      
+          .product p {
+              font-size: 16px;
+              color: #666;
+              margin: 5px 0;
+          }
+      
+          .add-to-cart {
+              background-color: #003300; 
+              color: white;
+              border: none;
+              border-radius: 5px;
+              padding: 10px;
+              font-size: 16px;
+              cursor: pointer;
+              transition: background-color 0.3s ease, transform 0.2s ease;
+          }
+      
+          .add-to-cart:hover {
+              background-color: #9a1e1e; 
+              transform: scale(1.05); 
+          }
+      
+          .product:hover {
+              transform: translateY(-5px); 
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+          }
+      
+              .modal {
+                  display: none;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  justify-content: center;
+                  align-items: center;
+              }
+      
+              .modal-content {
+                  background-color: #fff;
+                  padding: 20px;
+                  border-radius: 5px;
+                  width: 80%;
+                  max-width: 500px;
+                  position: relative;
+              }
+      
+              .modal-content .close {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  cursor: pointer;
+              }
+      
+              .modal-content button {
+                  margin-top: 10px;
+                  padding: 10px 20px;
+                  cursor: pointer;
+                  background-color: #000000;
+                  color: #fff;
+                  border: none;
+                  border-radius: 5px;
+                  transition: background-color 0.3s ease;
+              }
+      
+              .modal-content button:hover {
+                  background-color: #003300;
+              }
+      
+              footer {
+                  background-color: #003300; 
+                  color: #fff;
+                  text-align: center;
+                  padding: 20px 0;
+                  position: relative;
+                  width: 100%;
+                  bottom: 0;
+              }
+      
+              footer p {
+                  margin: 0;
+              }
+      
+              @media (max-width: 768px) {
+                  .search-bar input[type="text"] {
+                      width: 150px;
+                      font-size: 0.9em;
+                  }
+      
+                  .search-bar button, .cart button {
+                      font-size: 0.9em;
+                  }
+      
+                  .product {
+                      width: 180px;
+                  }
+      
+                  .modal-content {
+                      width: 90%;
+                      padding: 10px;
+                  }
+      
+                  .modal-content .close {
+                      top: 5px;
+                      right: 5px;
+                  }
+      
+                  .modal-content button {
+                      padding: 8px 16px;
+                  }
+      
+                  .nav-toggle {
+                      display: block;
+                  }
+      
+                  .nav-menu {
+                      display: none;
+                  }
+      
+                  .mobile-menu.active {
+                      display: flex;
+                  }
+              }
+      /* Basic styling for input container */
+      .InputContainer {
+          position: relative;
+          display: flex;
+          align-items: center;
+      }
+      
+      /* Style for the input */
+      .input {
+          padding: 10px 40px 10px 10px; /* Add padding on the right for the icon */
+          border: 2px solid #ddd;
+          border-radius: 4px;
+          width: 200px;
+          transition: border-color 0.3s ease;
+      }
+      
+      .input:focus {
+          border-color: #004d00; 
+          outline: none; 
+      }
+      
+
+      .search-icon {
+          position: absolute;
+          right: 10px; 
+          font-size: 16px;
+          color: #aaa; 
+          cursor: pointer;
+      }
+      
+      .search-results {
+          position: absolute;
+          top: 100%; 
+          left: 0;
+          right: 0;
+          background-color: white;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          max-height: 200px;
+          overflow-y: auto;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      
+
+      .search-results .result-item {
+          padding: 10px;
+          cursor: pointer;
+      }
+      
+      .search-results .result-item:hover {
+          background-color: #f1f1f1;
+      }
+      
+    
+      .search-results.show {
+          opacity: 1;
+          visibility: visible;
+      }
+        }
+        .menu {
+          position: relative;
+          z-index: 999; 
+          width: 50%;
+      }
+      
+      .mobile-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background-color: #003300;
+          padding: 10px;
+          border-radius: 4px;
+          z-index: 1001;
+      }
+      
+      .mobile-menu a, .mobile-menu .cart {
+          display: block;
+          color: white;
+          text-decoration: none;
+          margin: 10px 0;
+      }
+      
+      .nav-toggle {
+    position: absolute;
+    right: 0;
+    top: -26px; 
+    padding: 20spx;
+    cursor: pointer;
+}
+      
+      @media screen and (max-width: 768px) {
+          .nav-menu {
+              display: none;
+          }
+          .nav-toggle {
+              display: block;
+              
+          }
+      }
+      
+      .cart {
+          display: block;
+      }
+      
+      @media screen and (max-width: 1024px) {
+          .cart {
+              display: none;
+          }
+      }
+      .search input[type="search"] {
+          color: #191e21;
+          width: 70%;
+          letter-spacing: 1px;
+          border-radius: 5px;
+          padding: 10px;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+      }
+      
+      .search button {
+          border-radius: 5px;
+          background: #9a1e1e;
+          color: #fff;
+          width: 25%;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.22);
+          padding: 10px;
+      }
+      .pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #003300;
+    text-decoration: none;
+    border: 1px solid #003300;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.page-link:hover {
+    background-color: #9a1e1e;
+    color: #fff;
+}
+
+.page-item.active .page-link {
+    background-color: #003300;
+    color: #fff;
+    border-color: #003300;
+}
+
+@media (max-width: 576px) {
+    .pagination {
+        flex-wrap: wrap;
+    }
+    
+    .page-item {
+        flex: 1 1 auto;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .page-link {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+.mobile-menu .cart {
+    display: block;
+    margin: 10px 0;
+}
+
+.mobile-menu #cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.mobile-menu #cart-items li {
+    margin-bottom: 5px;
+}
+
+.mobile-menu #cart-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Orefile General Dealer</div>
+        <div class="InputContainer">
+            <div class="col-10 search">
+                <form class="form-inline" action="#" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
+                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>                
+        </div>        
+        <div class="cart">
+            <button id="cart-button">
+                <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+            </button>
+        </div>
+        <div class="menu" id="menu">
+            <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+            <nav class="nav-menu">
+                <a href="./index.html">Home</a>
+                <a href="./dashboard.html">All Products</a>
+                <a href="./deals.html">Deals</a>
+                <a href="./foods.html">Food</a>
+                <a href="./household.html">Household</a>
+                <a href="./popular.html">Most Popular</a>
+                <a href="./orders.html">My Orders</a>
+            </nav>
+            <nav class="mobile-menu" id="mobile-menu">
+                <a href="./index.html">Home</a>
+                <a href="./dashboard.html">All Products</a>
+                <a href="./deals.html">Deals</a>
+                <a href="./foods.html">Food</a>
+                <a href="./household.html">Household</a>
+                <a href="./popular.html">Most Popular</a>
+                <a href="./orders.html">My Orders</a>
+                <div class="cart">
+                    <button id="cart-button">
+                        <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+    </header>
+<body>
+    <main>
+        <section class="products">
+            <div class="product" data-id="1" data-name="Cranberry Juice" data-price="18.00">
+                <img src="pics/BerryJ.jpeg" alt="Natural Juice">
+                <h2>Cranberry Juice</h2>
+                <p>R 18.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product" data-id="2" data-name="Mango Juice" data-price="23.00">
+                <img src="pics/MangoJ.jpeg" alt="Natural Juice">
+                <h2>Mango Juice</h2>
+                <p>R 23.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product" data-id="3" data-name="Natural Juice" data-price="17.00">
+                <img src="pics/NaturalJ.jpeg" alt="Natural Juice">
+                <h2>Natural Juice</h2>
+                <p>R 17.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product" data-id="4" data-name="Natural Juice" data-price="16.00">
+                <img src="pics/reddd.jpeg" alt="Refresher">
+                <h2>Refresher Soft Drink</h2>
+                <p>R 16.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            
+            <div class="product" data-id="4" data-name="Natural Juice" data-price="16.00">
+                <img src="pics/reddd.jpeg" alt="Refresher">
+                <h2>Refresher Soft Drink</h2>
+                <p>R 16.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+  
+            <div class="product" data-id="5" data-name="Spar Letta" data-price="19.00">
+                <img src="pics/SparD.jpeg" alt="Spar Letta">
+                <h2>Spar Letta</h2>
+                <p>R 19.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+
+            <div class="product" data-id="6" data-name="Sprite" data-price="27.75">
+                <img src="pics/Sprite.jpeg" alt="Sprite">
+                <h2>Sprite</h2>
+                <p>R 27.55</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="7" data-name="Tropical Juice" data-price="25.00">
+                <img src="pics/TropicalJ.jpeg" alt="Tropical">
+                <h2>Tropical Juice</h2>
+                <p>R 25.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="8" data-name="Twist Soft Drink" data-price="18.00">
+                <img src="pics/TwistD.jpeg" alt="Twist">
+                <h2>Twist Soft Drink</h2>
+                <p>R 18.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="9" data-name="Twizza" data-price="11.00">
+                <img src="pics/TwizzaD.jpeg" alt="Twizza">
+                <h2>Twizza</h2>
+                <p>R 11.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="cproduct" data-id="10" data-name="Red Bull" data-price="18.00">
+                <img src="pics/red.jpeg" alt="Red Bull">
+                <h2>Red Bull</h2>
+                <p>R 18.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="11" data-name="Prime" data-price="16.00">
+                <img src="pics/prime.png" alt="Prime">
+                <h2>Prime</h2>
+                <p>R 16.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="12" data-name="Monster Energy Drink" data-price="19.00">
+                <img src="pics/monster.jpeg" alt="Monster">
+                <h2>Monster Energy Drink</h2>
+                <p>R 19.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="13" data-name="Boost" data-price="15.00">
+                <img src="pics/boost.png" alt="Boost">
+                <h2>Boost</h2>
+                <p>R 15.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="14" data-name="Energade Energy Drink" data-price="17.00">
+                <img src="pics/energande.jpeg" alt="Energaade">
+                <h2>Energade Energy Drink</h2>
+                <p>R 17.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="15" data-name="Hustle Energy drink" data-price="16.00">
+                <img src="pics/hustle.png" alt="Hustle">
+                <h2>Hustle Energy drink</h2>
+                <p>R 16.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="16" data-name="Celsius Energy" data-price="23.00">
+                <img src="pics/celsius.jpeg" alt="Celsius">
+                <h2>Celsius Energy</h2>
+                <p>R 23.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="17" data-name="Alkaline Water 1L" data-price="15.00">
+                <img src="pics/alkaline.jpeg" alt="alkaline">
+                <h2>Alkaline Water 1L</h2>
+                <p>R 15.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="cproduct" data-id="18" data-name="Pump Water" data-price="18.00">
+                <img src="pics/pump.jpeg" alt="Pump">
+                <h2>Pump Water</h2>
+                <p>R 18.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="19" data-name="First Choice Milk 1L" data-price="19.00">
+                <img src="pics/firstchoice.jpeg" alt="firstchoice">
+                <h2>First Choice Milk 1L</h2>
+                <p>R 19.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="20" data-name="Full cream milk 2L" data-price="31.00">
+                <img src="pics/fullcream.jpeg" alt="Full cream">
+                <h2>Full cream milk 2L</h2>
+                <p>R 31.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2" data-name="Coca-cola 2 litre" data-price="27.99">
+                <img src="images/coke.jpg" alt="Coca-cola 2 litre">
+                <h2>Coca-cola 2 litre</h2>
+                <p>R 27.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+</section>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination nt-5">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
+
+</main>
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </ul>
+        <p>Total: R<span id="cart-total">0</span></p>
+
+        <ul class="payment-methods">
+            <li class="payment-option">
+                <input type="radio" name="payment-method" value="credit-card" id="credit-card-radio">
+                <label for="credit-card-radio" class="payment-item">
+                    <button class="payment-button" id="credit-card">
+                        <i class="fas fa-credit-card"></i> Credit Card
+                    </button>
+                </label>
+            </li>
+            <li class="payment-option">
+                <input type="radio" name="payment-method" value="paypal" id="paypal-radio">
+                <label for="paypal-radio" class="payment-item">
+                    <button class="payment-button" id="paypal">
+                        <i class="fas fa-credit-card"></i> SASSA
+                    </button>
+                </label>
+            </li>
+            <li class="payment-option">
+                <input type="radio" name="payment-method" value="bank-transfer" id="bank-transfer-radio">
+                <label for="bank-transfer-radio" class="payment-item">
+                    <button class="payment-button" id="bank-transfer">
+                        <i class="fas fa-university"></i> Bank Transfer
+                    </button>
+                </label>
+            </li>
+            <li class="payment-option">
+                <input type="radio" name="payment-method" value="eft" id="eft-radio">
+                <label for="eft-radio" class="payment-item">
+                    <button class="payment-button" id="eft">
+                        <i class="fa fa-money" aria-hidden="true"></i> EFT
+                    </button>
+                </label>
+            </li>
+        </ul>
+        <div>
+            <button type="button" id="proceed-button">Proceed to Payment</button>
+        </div>
+       
+
+       </div>
+       </div>
+
+       <footer>
+        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Mafikeng Digital Innovation Hub</p>
+    </footer>
+
+  <script>
+     document.getElementById('nav-toggle').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.style.display = (mobileMenu.style.display === 'block') ? 'none' : 'block';
+});
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const cart = [];
+                const cartButton = document.getElementById('cart-button');
+                const cartModal = document.getElementById('cart-modal');
+                const closeModal = document.querySelector('.close');
+                const cartCount = document.getElementById('cart-count');
+                const cartItems = document.getElementById('cart-items');
+                const cartTotal = document.getElementById('cart-total');
+                const amountField = document.getElementById('amount');
+                const itemNameField = document.getElementById('item_name');
+    
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const productElement = button.parentElement;
+                        const id = productElement.getAttribute('data-id');
+                        const name = productElement.getAttribute('data-name');
+                        const price = parseFloat(productElement.getAttribute('data-price'));
+    
+                        const productInCart = cart.find(item => item.id === id);
+    
+                        if (productInCart) {
+                            productInCart.quantity++;
+                        } else {
+                            cart.push({ id, name, price, quantity: 1 });
+                        }
+    
+                        updateCart();
+                    });
+                });
+    
+                cartButton.addEventListener('click', () => {
+                    cartModal.style.display = 'flex';
+                });
+    
+                closeModal.addEventListener('click', () => {
+                    cartModal.style.display = 'none';
+                });
+    
+                window.addEventListener('click', event => {
+                    if (event.target === cartModal) {
+                        cartModal.style.display = 'none';
+                    }
+                });
+    
+                function updateCart() {
+                    cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+                    cartItems.innerHTML = '';
+                    let total = 0;
+    
+                    cart.forEach((item, index) => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${item.name} - R${item.price} x ${item.quantity} `;
+                        
+                        // Add Remove Button
+                        const removeButton = document.createElement('button');
+                        removeButton.textContent = 'Remove';
+                        removeButton.classList.add('remove-from-cart');
+                        removeButton.dataset.index = index; // Store the index of the item
+                        
+                        removeButton.addEventListener('click', () => {
+                            cart.splice(index, 1); // Remove item from cart array
+                            updateCart(); // Update the cart display
+                        });
+    
+                        listItem.appendChild(removeButton);
+                        cartItems.appendChild(listItem);
+                        total += item.price * item.quantity;
+                    });
+    
+                    cartTotal.textContent = total.toFixed(2);
+                    amountField.value = total.toFixed(2);
+                    itemNameField.value = cart.map(item => item.name).join(', ');
+                }
+            });
+            document.querySelectorAll('.payment-button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove 'selected' class from all buttons
+        document.querySelectorAll('.payment-button').forEach(btn => btn.classList.remove('selected'));
+        
+        // Add 'selected' class to the clicked button
+        this.classList.add('selected');
+    });
+});
+document.getElementById('proceed-button').addEventListener('click', function() {
+            // Replace 'your-payment-screen-url.html' with the actual URL of the payment screen
+            window.location.href = 'payment.html';
+        });
+          // Function to filter and display search results
+    function showResults(query) {
+        const resultsContainer = document.getElementById('search-results');
+        resultsContainer.innerHTML = '';
+        
+        if (query) {
+            const filteredData = data.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+            filteredData.forEach(item => {
+                const resultItem = document.createElement('div');
+                resultItem.textContent = item;
+                resultItem.classList.add('result-item');
+                resultItem.onclick = () => {
+                    document.getElementById('input').value = item;
+                    resultsContainer.innerHTML = '';
+                    resultsContainer.classList.remove('show');
+                };
+                resultsContainer.appendChild(resultItem);
+            });
+            resultsContainer.classList.add('show');
+        } else {
+            resultsContainer.classList.remove('show');
+        }
+    }
+
+    // Add event listener to input for search functionality
+    document.getElementById('input').addEventListener('input', function() {
+        showResults(this.value);
+    });
+
+    // Optional: Add event listener to search icon
+    document.querySelector('.search-icon').addEventListener('click', function() {
+        const query = document.getElementById('input').value;
+        showResults(query);
+    });
+
+    // Close results container when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!document.querySelector('.InputContainer').contains(event.target)) {
+            document.getElementById('search-results').classList.remove('show');
+        }
+    });
+
+     const tabs = document.querySelectorAll(".resp-tabs-list li");
+    const contents = document.querySelectorAll(".resp-tabs-container > div");
+  
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+  
+        tab.classList.add("active");
+        contents[index].classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>

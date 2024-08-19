@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlapeng Digital Tuckshop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      
+            * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+  font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;  
+  }
+
+    header {
+        background-color: #f8f9fa;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .search-bar {
+        display: flex;
+        gap: 10px;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 5px;
+        font-size: 1em;
+        width: 200px;
+    }
+
+    .search-bar button {
+        padding: 5px 10px;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    .cart button {
+        padding: 5px 10px;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .product {
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        width: 200px;
+        box-sizing: border-box;
+    }
+
+    .product img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        width: 80%;
+        max-width: 500px;
+        position: relative;
+    }
+
+    .modal-content .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .modal-content button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #f8f9fa;
+        padding: 10px;
+        text-align: center;
+        border-top: 1px solid #dee2e6;
+    }
+
+    /* Media Queries for Mobile Devices */
+    @media (max-width: 768px) {
+        .search-bar input[type="text"] {
+            width: 150px;
+            font-size: 0.9em;
+        }
+
+        .search-bar button, .cart button {
+            font-size: 0.9em;
+        }
+
+        .product {
+            width: 180px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo {
+            font-size: 1.2em;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100px;
+            font-size: 0.8em;
+        }
+
+        .search-bar button, .cart button {
+            font-size: 0.8em;
+        }
+
+        .product {
+            width: 150px;
+        }
+
+        .modal-content {
+            width: 90%;
+            padding: 10px;
+        }
+
+        .modal-content .close {
+            top: 5px;
+            right: 5px;
+        }
+
+        .modal-content button {
+            padding: 8px 16px;
+        }
+    }
+    main {
+        flex: 1; /* This ensures the main content takes up the remaining space */
+    }
+
+    footer {
+        background-color: rgba(51, 51, 51, 0.8); /* Adjusted for visibility */
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+    }
+
+    footer p {
+        margin: 0;
+    }
+</style>
+
+</style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Tlapeng Digital Tuckshop</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button>Search</button>
+        </div>
+        <div class="cart">
+            <button id="cart-button">Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+    <main>
+        <section class="products">
+            <div class="product" data-id="1" data-name="Maize meal 10kg" data-price="95">
+                <img src="images/maize.jpg" alt="Maize meal 10kg">
+                <h2>Maize meal 10kg</h2>
+                <p>R 95</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2" data-name="Coca-cola 2 litre" data-price="25">
+                <img src="images/coke.jpg" alt="Coca-cola 2 litre">
+                <h2>Coca-cola 2 litre</h2>
+                <p>R 25</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="3" data-name="Cooking oil 2 litre" data-price="25">
+                <img src="images/oil.jpg" alt="Cooking oil 2 litre">
+                <h2>Cooking oil 2 litre</h2>
+                <p>R 25</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="4" data-name="Sugar 2kg" data-price="25">
+                <img src="images/sugar.jpg" alt="Sugar 2kg">
+                <h2>Sugar 2kg</h2>
+                <p>R 25</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="5" data-name="Koo Baked Beans" data-price="21.99">
+                <img src="images/beans.jpg" alt="Koo Baked Beans">
+                <h2>Koo Baked Beans</h2>
+                <p>R 21.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="6" data-name="Potatoes" data-price="16.99">
+                <img src="images/patatoes.jpg" alt="Potatoes">
+                <h2>Potatoes</h2>
+                <p>R 16.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="7" data-name="Rice" data-price="34.99">
+                <img src="images/rice.jpg" alt="Rice">
+                <h2>Rice</h2>
+                <p>R 34.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="8" data-name="Rama" data-price="32.99">
+                <img src="images/rama.jpg" alt="Rama">
+                <h2>Rama</h2>
+                <p>R 32.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="9" data-name="Tomatoes" data-price="19.99">
+                <img src="images/tomatoes.jpg" alt="Tomatoes">
+                <h2>Tomatoes</h2>
+                <p>R 19.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="9" data-name="washing-powder" data-price="64.99">
+                <img src="images/tomatoes.jpg" alt="Tomatoes">
+                <h2>Washing powder</h2>
+                <p>R 64.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="10" data-name="milk" data-price="84.99">
+                <img src="images/milk.jpg" alt="Tomatoes">
+                <h2>Milk</h2>
+                <p>R 84.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="11" data-name="chicken" data-price="134.99">
+                <img src="images/chick.jpg" alt="Chicken">
+                <h2>Chicken 5kg</h2>
+                <p>R 134.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="12" data-name="eggs" data-price="37.99">
+                <img src="images/eggs.jpg" alt="Tomatoes">
+                <h2>Eggs</h2>
+                <p>R 37.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="13" data-name="toilet-paper" data-price="74.99">
+                <img src="images/paper.jpg" alt="Tomatoes">
+                <h2>Toilet paper</h2>
+                <p>R 74.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="14" data-name="samp" data-price="52.99">
+                    <img src="images/samp.jpg" alt="Tomatoes">
+                    <h2>Samp</h2>
+                    <p>R 52.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </ul>
+            <p>Total: R<span id="cart-total">0</span></p>
+
+            <div class="cancel">
+                <h2>Payment Cancelled<a href="dashboard.html">TRY AGAIN</a></h2>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+
+

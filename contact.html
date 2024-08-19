@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support - Tlapeng Digital Tuckshop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+             /* Styles for screens larger than 320px */
+@media (min-width: 321px) {
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Baskerville SC', serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+/* Base header styling */
+.header {
+    background-color: #003300; /* Green background for the header */
+    color: #ffffff;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Navbar container */
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar links */
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Show/hide hamburger menu */
+.hamburger-menu {
+    display: none; /* Hide by default */
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -50px;
+     z-index: 1000;
+}
+
+/* Hide menu by default */
+.menu {
+    display: flex; /* Show menu items horizontally */
+    align-items: center;
+}
+
+/* Navigation list styling */
+.navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Horizontally align items */
+}
+
+.navigation li {
+    margin: 0;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px; /* Adjust the value for more or less rounding */
+    text-decoration: none;
+    color: #ffffff; /* Adjust text color as needed */
+}
+
+/* Hover effect */
+.navigation a:hover {
+    height: 40px;
+    background-color: #880808; /* Change background on hover */
+    color: #ffffff; /* Ensure text color remains readable */
+}
+
+/* Right side buttons */
+.nav-right {
+    display: flex;
+}
+
+.nav-brand {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.btn-login {
+    background-color: #880808; /* Blue background for login */
+}
+
+.btn-signup {
+    background-color: #0047AB; /* Green background for sign-up */
+}
+
+.btn:hover {
+    background-color: #003300;
+    color: white;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show on small screens */
+        margin-left: auto; /* Align to the right */
+         z-index: 1000;
+    }
+
+    .menu {
+        display: none; /* Hide the menu by default on small screens */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%; /* Full width for mobile */
+        background-color: #003300; /* Background color for the dropdown */
+        flex-direction: column; /* Align items vertically */
+        text-align: center;
+    }
+
+    .menu.show {
+        display: flex; /* Show menu when hamburger is clicked */
+    }
+
+    .navigation {
+        flex-direction: column; /* Align menu items vertically */
+    }
+
+    .navigation li {
+        border-bottom: 1px solid #ffffff; /* Add separation lines between items */
+    }
+
+    .nav-right {
+        display: none; /* Hide right side buttons on small screens */
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation a {
+        padding: 10px;
+        text-align: left;
+        width: 100%; /* Full width for mobile */
+    }
+}
+        @media (max-width: 768px) {
+            .nav-right {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu {
+                flex-direction: column;
+                align-items: flex-end;
+                display: none;
+                text-align: center;
+            }
+
+            .menu.open {
+                display: flex;
+            }
+
+            .navigation ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navigation li {
+                width: 100%;
+            }
+
+            .navigation li a {
+                padding: 10px;
+                text-align: left;
+                width: 100%;
+            }
+        }
+   
+.menu-s {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #ffffff;
+  width: fit-content;
+  display: flex;
+  list-style: none;
+  margin-top: -5.5px;
+}
+
+.menu-s a {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.menu-s .link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 36px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu-s .link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a3cff;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu-s .link svg {
+  width: 14px;
+  height: 14px;
+  fill: #000000;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.menu-s .item {
+  position: relative;
+}
+
+.menu-s .item .submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  width: 100%;
+  overflow: hidden;
+
+  background-color: #003300; /* Dark background color */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+  pointer-events: none;
+  list-style: none;
+}
+
+.menu-s .item:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  border-top: transparent;
+  border-color: #004d00;
+}
+
+.menu-s .item:hover .link {
+  color: #ffffff;
+  border-radius: 16px 16px 0 0;
+}
+
+.menu-s .item:hover .link::after {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.menu-s .item:hover .link svg {
+  fill: #ffffff;
+  transform: rotate(-180deg);
+}
+
+.submenu .submenu-item {
+  width: 100%;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  color: #ffffff;
+  z-index: 2000; /* Ensure the submenu is on top when hovered */
+ 
+}
+
+.submenu .submenu-link {
+  display: block;
+  padding: 12px 24px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+  color: #ffffff; 
+  z-index: 2000; /* Ensure the submenu is on top when hovered */
+}
+
+.submenu .submenu-item:last-child .submenu-link {
+  border-bottom: none;
+}
+
+.submenu .submenu-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  width: 100%;
+  height: 100%;
+  background-color: #0a3cff;
+  z-index: -1;
+  transform-origin: left;
+  transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.submenu .submenu-link:hover:before {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.submenu .submenu-link:hover {
+  color: #000000;
+  z-index: 2000; /* Ensure the submenu is on top when hovered */
+}
+        /* Main Content Styling */
+        main {
+            margin-top: 85px; /* Ensure header doesn't overlap content */
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #003300;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: #003300;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-item h3 {
+            font-size: 1.25rem;
+            color: #003300;
+        }
+
+        .faq-item p {
+            margin: 5px 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #003300;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background-color: #003300;
+        }
+        
+.form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-family: inherit;
+  gap: 10px;
+  padding-inline: 2em;
+  padding-bottom: 0.4em;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.form-heading {
+  text-align: center;
+  margin: 2em;
+  color: #003300;
+  font-size: 1.2em;
+  background-color: transparent;
+  align-self: center;
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 10px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #000000;
+  padding-inline: 1em;
+}
+
+.sendMessage-btn {
+  cursor: pointer;
+  margin-bottom: 3em;
+  padding: 1em;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #004d00;
+  font-weight: bold;
+  outline: 1px solid #004d00;
+  transition: all ease-in-out 0.3s;
+}
+
+.sendMessage-btn:hover {
+  transition: all ease-in-out 0.3s;
+ 
+  color: #000;
+  cursor: pointer;
+  box-shadow: inset 20px 7px 5px rgb(255, 255, 255);
+}
+
+.form-card1 {
+ 
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.form-card1:hover {
+  box-shadow: 20px 7px 5px #004d00;
+}
+
+.form-card2 {
+  border-radius: 0;
+  transition: all 0.2s;
+}
+
+.form-card2:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+
+        footer {
+            background: #004d00;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    }
+    </style>
+</head>
+<body>
+        <header class="header">
+            <div class="nav-container">
+                <div class="navbar">
+                    <a class="nav-brand" href="index.html">Orefile General Dealer</a>
+                    <div class="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+                    <div class="menu" id="menu">
+                        <nav class="navbar">
+                            <ul class="navigation">
+                                <li><a href="./index.html">Home</a></li>
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./faqs.html">FAQs</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                                <div class="menu-s">
+                                    <div class="item">
+                                      <a href="#" class="link">
+                                        <span> Shop </span>
+                                        <svg viewBox="0 0 360 360" xml:space="preserve">
+                                          <g id="SVGRepo_iconCarrier">
+                                            <path
+                                              id="XMLID_225_"
+                                              d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+                                            ></path>
+                                          </g>
+                                        </svg>
+                                      </a>
+                                      <div class="submenu">
+                                          <div class="submenu-item">
+                                          <a href="./dashboard.html" class="submenu-link"> Groceries </a>
+                                        </div>
+                                        <div class="submenu-item">
+                                          <a href="./prepaid.html" class="submenu-link"> Pay bills </a>
+                                        </div>
+                                        <div class="submenu-item">
+                                            <a href="./electricity.html" class="submenu-link"> Electricity </a>
+                                        </div>
+                                        <div class="submenu-item">
+                                            <a href=".data.html" class="submenu-link"> Mobile data </a>
+                                        </div>
+                                        <div class="submenu-item">
+                                            <a href="./lotto.html" class="submenu-link"> Lottery tickets </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </ul>
+                            <div class="nav-right">
+                                <a href="./login.html" class="btn btn-login">Login</a>
+                                <a href="./signup.html" class="btn btn-signup">Sign up</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+    <main>
+        <section class="section">
+            <h1>Customer Support</h1>
+            <p>Welcome to the customer support page. Here, you can find answers to frequently asked questions, our support contact details, and a form for reaching out to our support team directly.</p>
+        </section>
+
+        <section class="section">
+            <h2>Contact Information</h2>
+            <p>If you have any questions or need assistance, please contact us:</p>
+            <p><strong>Email:</strong> support@tlapengtuckshop.com</p>
+            <p><strong>Phone:</strong> 018-123-4567</p>
+            <p><strong>Support Hours:</strong> Monday to Friday, 9 AM - 6 PM</p>
+        </section>
+
+        <section class="section">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-item">
+                <h3>How can I track my order?</h3>
+                <p>You can track your order by logging into your account and going to the "Orders" section. You will see the status of your order there.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What is your return policy?</h3>
+                <p>We accept returns within 30 days of purchase. Items must be in their original condition. Please contact our support team for return instructions.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How can I update my payment method?</h3>
+                <p>You can update your payment method by logging into your account and going to the "Payment Methods" section. Here you can add or update your payment information.</p>
+            </div>
+        </section>
+
+        <section class="section">
+<div class="form-card1">
+  <div class="form-card2">
+    <form class="form">
+      <p class="form-heading">Get In Touch</p>
+
+      <div class="form-field">
+        <input required="" placeholder="Name" class="input-field" type="text" />
+      </div>
+
+      <div class="form-field">
+        <input
+          required=""
+          placeholder="Email"
+          class="input-field"
+          type="email"
+        />
+      </div>
+
+      <div class="form-field">
+        <input
+          required=""
+          placeholder="Subject"
+          class="input-field"
+          type="text"
+        />
+      </div>
+
+      <div class="form-field">
+        <textarea
+          required=""
+          placeholder="Message"
+          cols="30"
+          rows="3"
+          class="input-field"
+        ></textarea>
+      </div>
+
+      <button class="sendMessage-btn">Send Message</button>
+    </form>
+  </div>
+</div>
+
+        </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Mafikeng Digital Innovation Hub. All rights reserved.</p>
+  </footer>
+
+    <script>
+        // Toggle hamburger menu
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

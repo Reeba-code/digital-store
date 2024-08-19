@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Received - Tlapeng Digital Tuckshop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .search-bar {
+            display: flex;
+            gap: 10px;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 1em;
+            width: 200px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .cart button {
+            padding: 5px 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+            box-sizing: border-box;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        .modal-content .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .modal-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+        @media (max-width: 768px) {
+            .search-bar input[type="text"] {
+                width: 150px;
+                font-size: 0.9em;
+            }
+            .search-bar button, .cart button {
+                font-size: 0.9em;
+            }
+            .product {
+                width: 180px;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2em;
+            }
+            .search-bar input[type="text"] {
+                width: 100px;
+                font-size: 0.8em;
+            }
+            .search-bar button, .cart button {
+                font-size: 0.8em;
+            }
+            .product {
+                width: 150px;
+            }
+            .modal-content {
+                width: 90%;
+                padding: 10px;
+            }
+            .modal-content .close {
+                top: 5px;
+                right: 5px;
+            }
+            .modal-content button {
+                padding: 8px 16px;
+            }
+        }
+        main {
+            flex: 1; /* This ensures the main content takes up the remaining space */
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .payment-method label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        .payment-method i {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .payment-method input[type="radio"] {
+            display: none;
+        }
+        .payment-method.credit-card {
+            background-color: #4CAF50;
+        }
+        .payment-method.credit-card:hover {
+            background-color: #45a049;
+        }
+        .payment-method.paypal {
+            background-color: #0070ba;
+        }
+        .payment-method.paypal:hover {
+            background-color: #005a93;
+        }
+        .payment-method.bank-transfer {
+            background-color: #f39c12;
+        }
+        .payment-method.bank-transfer:hover {
+            background-color: #e08e0b;
+        }
+         .about-content {
+            background-color: #f0f8ff; /* Light blue */
+            padding: 20px;
+        }
+        /* Footer Styling */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <a class="nav-brand">Tlapeng Digital Tuckshop</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Thank You!</h1>
+        <p>Your form has been successfully submitted. Our support team will get back to you as soon as possible.</p>
+        <a href="./index.html" class="button">Return to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mafikeng Digital Innovation Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

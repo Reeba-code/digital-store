@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            color: #555;
+        }
+        .order-details {
+            border-top: 2px solid #eee;
+            padding-top: 10px;
+            margin-top: 20px;
+        }
+        .order-details th, .order-details td {
+            padding: 10px;
+            text-align: left;
+        }
+        .order-details th {
+            background-color: #f9f9f9;
+        }
+        .order-details td {
+            background-color: #ffffff;
+        }
+        .footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .back-to-home {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<div class="container">
+    <h1>Order Summary</h1>
+    <p>Thank you for your purchase, <span id="customerName"></span>!</p>
+
+    <div class="order-details">
+        <h2>Order Details:</h2>
+     
+            
+        <a href="mailto:rebaoneesmy@gmail.com?subject=Hello%20there&body=This%20is%20a%20Dear%20customer%20,%20your%20payment%20has%20been%20successful%20,%20if%20you%20would%20like%20to%20customize%20your%20order%20please%20do%20so%20and%20let%20us%20know%20if%20there%20is%20anything%20else%20that%20we%20can%20do%20to%20make%20your%20shopping%20experience%20much%20more%20worth%20it.%20Other%20than%20that%20Thank%20you%20for%20shopping%20with%20us!%20Call%20back%20soon!
+
+        Sent from Mail for Windows.">SEND ORDER DETAILS</a>
+        <table>
+            <tr>
+                <th>Order Number:</th>
+                <td id="orderNumber">12345</td>
+            </tr>
+            <tr>
+                <th>Item(s) Purchased:</th>
+                <td id="itemsPurchased">Beans, Can Fish</td>
+            </tr>
+            <tr>
+                <th>Total Amount:</th>
+                <td id="totalAmount">R100</td>
+            </tr>
+            <tr>
+                <th>Shipping Address:</th>
+                <td id="shippingAddress">123 Main St, City, Country</td>
+            </tr>
+            <tr>
+                <th>Estimated Delivery Date:</th>
+                <td id="estimatedDeliveryDate">2024-07-20</td>
+            </tr>
+        </table>
+    </div>
+
+    <a href="./dashboard.html" class="back-to-home">Back to Home</a>
+
+    <div class="footer">
+        <p>If you have any questions or need further assistance, feel free to contact our customer support team at <a href="mailto:support@example.com">rebaoneesmy@gmail.com</a> or call us at 0636601370.</p>
+        <p>We appreciate your business and hope you enjoy your purchase!</p>
+        <p>Best regards,</p>
+        <p>Tlapeng Digital Tuckshop</p>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+        
+        if (orderDetails) {
+            document.getElementById('customerName').textContent = orderDetails.customerName;
+            document.getElementById('orderNumber').textContent = orderDetails.orderNumber;
+            document.getElementById('itemsPurchased').textContent = orderDetails.itemsPurchased;
+            document.getElementById('totalAmount').textContent = orderDetails.totalAmount;
+            document.getElementById('shippingAddress').textContent = orderDetails.shippingAddress;
+            document.getElementById('estimatedDeliveryDate').textContent = orderDetails.estimatedDeliveryDate;
+        }
+    });
+</script>
+</body>
+</html>

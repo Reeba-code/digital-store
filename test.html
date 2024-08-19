@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<section class="cart">
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Shopping Cart</h2>
+       
+
+       <!-- checkout page -->
+<div class="privacy py-sm-5 py-4">
+<div class="container py-xl-4 py-lg-2">
+    <!-- title heading -->
+    
+    <!-- //title heading -->
+    <div class="checkout-right">
+        <div class="table-responsive">
+            <table class="timetable_sub">
+                <thead>
+                    <tr>
+                        <th>SL No.</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Repeat this block for each product -->
+                    <tr class="rem1">
+                        <td class="invert">1</td>
+                        <td class="invert-image">
+                            <a href="dashboard.html">
+                                <img src="images/coke.jpg" alt=" " class="img-responsive">
+                            </a>
+                        </td>
+                        <td class="invert">
+                            <div class="quantity">
+                                <div class="quantity-select">
+                                    <div class="entry value-minus">-</div>
+                                    <div class="entry value">
+                                        <span>1</span>
+                                    </div>
+                                    <div class="entry value-plus">+</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="invert">Coca-cola</td>
+                        <td class="invert">R27.99</td>
+                        <td class="invert">
+                            <div class="rem">
+                                <div class="close1"> </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- End of product block -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="checkout-left">
+        <div class="address_form_agile mt-sm-5 mt-4">
+            <h4 class="mb-sm-4 mb-3">Add Delivery Details</h4>
+            <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
+                <div class="creditly-wrapper wthree w3_agileits_wrapper">
+                    <div class="information-wrapper">
+                        <div class="first-row">
+                            <div class="controls form-group">
+                                <input class="billing-address-name form-control" type="text" name="name" placeholder="Full Name" required>
+                            </div>
+                            <div class="w3_agileits_card_number_grids">
+                                <div class="w3_agileits_card_number_grid_left form-group">
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Mobile Number" name="number" required>
+                                    </div>
+                                </div>
+                                <div class="w3_agileits_card_number_grid_right form-group">
+                                    <div class="controls">
+                                        <input type="text" class="form-control" placeholder="Landmark" name="landmark" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="controls form-group">
+                                <input type="text" class="form-control" placeholder="Town/City" name="city" required>
+                            </div>
+                            <div class="controls form-group">
+                                <select class="option-w3ls form-control">
+                                    <option>Select Address Type</option>
+                                    <option>Office</option>
+                                    <option>Home</option>
+                                    <option>Commercial</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="submit check_out btn">Delivery to this Address</button>
+                    </div>
+                </div>
+            </form>
+            <div class="checkout-right-basket">
+                <ul id="cart-items">
+        
+                </ul>
+                <p><b>Total: R<span id="cart-total">0</b></span></p>
+                <a href="./login.html">Proceed to Checkout
+                    <span class="far fa-hand-point-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- //checkout page -->
+</section>
+<style>
+    /* Container styling */
+.privacy {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #f8f9fa;
+}
+
+/* Title heading styling */
+.privacy .container {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+/* Table styling */
+.table-responsive {
+    margin-top: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.timetable_sub {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.timetable_sub th, .timetable_sub td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.timetable_sub thead th {
+    background-color: #343a40;
+    color: #fff;
+    font-weight: bold;
+}
+
+.timetable_sub tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.timetable_sub tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* SL No. Column */
+.timetable_sub th:nth-child(1), 
+.timetable_sub td:nth-child(1) {
+    width: 5%;
+}
+
+/* Product Image Column */
+.timetable_sub th:nth-child(2), 
+.timetable_sub td:nth-child(2) {
+    width: 20%;
+}
+
+/* Quantity Column */
+.timetable_sub th:nth-child(3), 
+.timetable_sub td:nth-child(3) {
+    width: 15%;
+}
+
+/* Product Name Column */
+.timetable_sub th:nth-child(4), 
+.timetable_sub td:nth-child(4) {
+    width: 30%;
+}
+
+/* Price Column */
+.timetable_sub th:nth-child(5), 
+.timetable_sub td:nth-child(5) {
+    width: 15%;
+}
+
+/* Availability Column */
+.timetable_sub th:nth-child(6), 
+.timetable_sub td:nth-child(6) {
+    width: 15%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timetable_sub th, .timetable_sub td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .timetable_sub th, .timetable_sub td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+/* Checkout Left Section */
+.checkout-left {
+    margin-top: 4rem;
+}
+
+/* Address Form Styling */
+.address_form_agile {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.address_form_agile h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Controls Styling */
+.controls.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.controls .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.controls .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Address Type Dropdown Styling */
+.option-w3ls.form-control {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Submit Button Styling */
+.submit.check_out.btn {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit.check_out.btn:hover {
+    background-color: #218838;
+}
+
+/* Checkout Right Basket Section */
+.checkout-right-basket {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.checkout-right-basket p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.checkout-right-basket a {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-right-basket a:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .address_form_agile {
+        padding: 1.5rem;
+    }
+
+    .submit.check_out.btn,
+    .checkout-right-basket a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+</style>
+
+</body>
+</html
