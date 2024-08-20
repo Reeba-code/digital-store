@@ -593,21 +593,6 @@
     </div>
   </div>
   
-  <!-- payment page -->
-<div class="services-breadcrumb">
-    <div class="agile_inner_breadcrumb">
-      <div class="container">
-        <ul class="w3_short">
-          <li>
-            <a href="index.html">Home</a>
-            <i>|</i>
-          </li>
-          <li>Make Your Payment</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
   <div class="container">
     <h1>Payment Information</h1>
     <div class="instructions">
@@ -653,7 +638,7 @@
 </form>
 </div>
   
-  <!-- CSS -->
+   <!-- CSS -->
   <style>
     .services-breadcrumb {
       background: #f5f5f5;
@@ -793,6 +778,95 @@
         text-align: center;
       }
     }
+    font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #004d00;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .instructions {
+            margin-bottom: 20px;
+            color: #666;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus {
+            border-color: #004d00;
+            outline: none;
+        }
+
+        #proceed-button {
+            background-color: #004d00;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        #proceed-button.enabled {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #proceed-button:hover {
+            background-color: #003300;
+        } 
   </style>
   
   <!-- JavaScript -->
@@ -810,8 +884,67 @@
       });
     });
 
-    
-  </script>
-  
+    // Function to format card number input
+    function formatCardNumber(value) {
+            return value.replace(/\D/g, '')               // Remove non-digit characters
+                        .match(/.{1,4}/g)              // Group by 4 digits
+                        .join('-');                   // Join with dash
+        }
+
+        // Function to format expiration date input
+        function formatExpiryDate(value) {
+            return value.replace(/\D/g, '')               // Remove non-digit characters
+                        .match(/.{1,2}/g)              // Group by 2 digits
+                        .join('/');                   // Join with slash
+        }
+
+        // Validate and format card number
+        document.getElementById('card-number').addEventListener('input', function(e) {
+            let value = e.target.value;
+            value = formatCardNumber(value);
+            e.target.value = value;
+        });
+
+        // Validate and format expiration date
+        document.getElementById('expiry-date').addEventListener('input', function(e) {
+            let value = e.target.value;
+            value = formatExpiryDate(value);
+            e.target.value = value;
+        });
+
+        // Enable the button when all required fields are filled
+        document.getElementById('details-form').addEventListener('input', function() {
+            const inputs = document.querySelectorAll('#details-form input');
+            let allFilled = true;
+            
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    allFilled = false;
+                }
+            });
+
+            const proceedButton = document.getElementById('proceed-button');
+            if (allFilled) {
+                proceedButton.disabled = false;
+                proceedButton.classList.add('enabled');
+            } else {
+                proceedButton.disabled = true;
+                proceedButton.classList.remove('enabled');
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('proceed-button').addEventListener('click', function() {
+            // Retrieve values from the form
+            const amount = '100.00'; // Example amount, replace with actual value
+            const itemName = 'Example Item'; // Example item name, replace with actual value
+
+            document.getElementById('amount').value = amount;
+            document.getElementById('item_name').value = itemName;
+
+            // Submit the payment form
+            document.getElementById('payment-form').submit();
+        });
+</script>
 </body>
-</html>  
+</html>
