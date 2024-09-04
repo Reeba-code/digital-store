@@ -542,17 +542,58 @@
   color: #000000;
   z-index: 2000; /* Ensure the submenu is on top when hovered */
 }
-footer {
-            background-color: #003300;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
 
-        footer p {
-            margin: 0;
-            color: #ffffff;
-        }
+/* Footer */
+.footer {
+  background-color: #004d00; /* Dark background */
+  color: #fff; /* White text */
+  padding: 20px 0; /* Padding around the footer */
+  font-family: Arial, sans-serif; /* Font style */
+}
+
+.footer .row {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space out columns */
+  max-width: 1200px; /* Max width for the footer */
+  margin: 0 auto; /* Center align */
+  padding: 0 20px; /* Padding on the sides */
+}
+
+.footer .col {
+  flex: 1; /* Equal width columns */
+  margin: 0 15px; /* Spacing between columns */
+}
+
+.footer h4 {
+  margin-bottom: 15px; /* Space below headings */
+  font-size: 18px; /* Font size for headings */
+}
+
+.footer a {
+  display: block; /* Stack links */
+  color: #fff; /* White text color */
+  text-decoration: none; /* Remove underline */
+  margin-bottom: 10px; /* Space between links */
+  transition: color 0.3s; /* Smooth transition for color */
+}
+
+.footer a:hover {
+  color: #880808; /* Change color on hover */
+}
+
+.footer .col span {
+  display: inline-block; /* Inline block for icons */
+  margin-right: 10px; /* Space between icons */
+}
+
+.footer .bx {
+  font-size: 24px; /* Icon size */
+  color: #fff; /* White icon color */
+  transition: color 0.3s; /* Smooth transition for color */
+}
+
+.footer .bx:hover {
+  color: #880808; /* Change color on hover */
 }
     </style>
 </head>
@@ -659,9 +700,30 @@ footer {
         </div>
     </section>
     
-    <footer>
-        <p>&copy; 2024 Mafikeng Digital Innovation Hub. All rights reserved.</p>
-    </footer>
+        <footer class="footer">
+        <div class="row">
+          <div class="col d-flex">
+            <h4>INFORMATION</h4>
+            <a href="./about.html">About us</a>
+            <a href=",/contact.html">Contact Us</a>
+            <a href="./terms.html">Term & Conditions</a>
+            <a href="./dilevery.html">Delivery Guide</a>
+          </div>
+          <div class="col d-flex">
+            <h4>USEFUL LINK</h4>
+            <a href="./shop.html">Online Store</a>
+            <a href="./support.html">Customer Services</a>
+            <a href="./deals.html">Promotion</a>
+            <a href="./popular.html">Top Brands</a>
+          </div>
+          <div class="col d-flex">
+            <span><i class="bx bxl-facebook-square"></i></span>
+            <span><i class="bx bxl-instagram-alt"></i></span>
+            <span><i class="bx bxl-twitter"></i></span>
+            <span><i class="bx bxl-whatsapp"></i></span>
+          </div>
+        </div>
+      </footer>
 
     <script>
         function toggleMenu() {
