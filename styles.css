@@ -146,15 +146,56 @@ main a:hover {
 .product button:hover {
     background-color: #218838;
 }
+/* Footer */
+.footer {
+  background-color: #003300; 
+  color: #fff; 
+  padding: 20px 0; 
+ font-family: 'Baskerville SC', serif;
+}
+.footer .row {
+  display: flex; 
+  justify-content: space-between; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
+}
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-    bottom: 0;
+.footer .col {
+  flex: 1; 
+  margin: 0 15px; 
+}
+
+.footer h4 {
+  margin-bottom: 15px;
+  font-size: 18px; 
+}
+
+.footer a {
+  display: block; 
+  color: #fff;
+  text-decoration: none; 
+  margin-bottom: 10px; 
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #880808; 
+}
+
+.footer .col span {
+  display: inline-block; 
+  margin-right: 10px; 
+}
+
+.footer .bx {
+  font-size: 24px; 
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.footer .bx:hover {
+  color: #880808; 
 }
 
 .modal {
