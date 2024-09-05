@@ -186,31 +186,33 @@
     }
 }
 
-       #welcome {
+        #welcome {
+            color: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #000;
+            color: white;
             padding: 20px;
-            position: relative;
         }
-        .btn-warning {
-            padding: 10px 30px;
-            background-color: #004d00;
-            color: #fff;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+        .btn-custom {
+    background-color: #003300; /* Dark Green */
+    color: white;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+}
 
-        .btn-warning:hover {
-            background-color: #000;
-            color: #fff;
-            transform: scale(1.05);
-        }
+.btn-custom:hover {
+    background-color: #004400; /* Slightly lighter green on hover */
+    transform: scale(1.05);
+}
+
         section {
             position: relative;
             padding: 50px 20px;
@@ -679,17 +681,18 @@
     
 
     <main>
-         <div id="welcome" >
-        <h2 style="font-size: 3rem; margin-bottom: 20px; font-weight: bold;">
-            O amogetswe mo Orefile General Dealer.
-        </h2>
-        <p style="font-size: 1.5rem; margin-bottom: 30px;">
-            Lebenkele la dijo la mo lefelong la lona le le mo seatleng sa gago.
-        </p>
-        <a href="product.php" class="btn btn-warning" style="padding: 10px 30px; font-size: 1.2rem;">
-            Shop Now
-        </a>
-    </div>
+        <div id="welcome" style="background-image: url('images/image1.jpg');">
+            <h2 style="font-size: 3rem; margin-bottom: 20px; font-weight: bold;">
+                O amogetswe mo Orefile General Dealer.
+            </h2>
+            <p style="font-size: 1.5rem; margin-bottom: 30px;">
+                Lebenkele la dijo la mo lefelong la lona le le mo seatleng sa gago.
+            </p>
+            <a href="#products" class="btn btn-custom" style="padding: 10px 30px; font-size: 1.2rem; border-radius: 5px; font-weight: bold;">
+                Shop Now
+            </a>
+            
+        </div>
         <div class="carousel">
             <div class="carousel-images">
                 <img src="images/image2.jpg" alt="Image 1">
