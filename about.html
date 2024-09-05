@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <style>
-     
+     /* Styles for screens larger than 320px */
+@media (min-width: 321px) {
+        /* General Reset */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,7 +29,7 @@
         }
 /* Base header styling */
 .header {
-    background-color: #004d00; 
+    background-color: #004d00; /* Green background for the header */
     color: #ffffff;
     position: relative;
     font-size: 18px;
@@ -58,7 +60,7 @@
 
 /* Show/hide hamburger menu */
 .hamburger-menu {
-    display: none;
+    display: none; /* Hide by default */
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
@@ -68,7 +70,7 @@
 
 /* Hide menu by default */
 .menu {
-    display: flex; 
+    display: flex; /* Show menu items horizontally */
     align-items: center;
 }
 
@@ -77,7 +79,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; 
+    display: flex; /* Horizontally align items */
 }
 
 .navigation li {
@@ -87,16 +89,16 @@
 .navigation a {
     display: inline-block;
     padding: 10px 15px;
-    border-radius: 5px; 
+    border-radius: 5px; /* Adjust the value for more or less rounding */
     text-decoration: none;
-    color: #ffffff;
+    color: #ffffff; /* Adjust text color as needed */
 }
 
 /* Hover effect */
 .navigation a:hover {
     height: 40px;
-    background-color: #880808; 
-    color: #ffffff; 
+    background-color: #880808; /* Change background on hover */
+    color: #ffffff; /* Ensure text color remains readable */
 }
 
 /* Right side buttons */
@@ -118,11 +120,11 @@
 }
 
 .btn-login {
-    background-color: #880808; 
+    background-color: #880808; /* Blue background for login */
 }
 
 .btn-signup {
-    background-color: #0047AB; 
+    background-color: #0047AB; /* Green background for sign-up */
 }
 
 .btn:hover {
@@ -133,41 +135,42 @@
 /* Responsive styling for smaller screens */
 @media (max-width: 768px) {
     .header {
-        font-size: 16px;
-        padding: 8px; 
+        font-size: 16px; /* Adjust font size for smaller screens */
+        padding: 8px; /* Reduce padding for smaller screens */
     }
 
     .hamburger-menu {
-        display: block; 
-        margin-left: auto; 
+        display: block; /* Show on small screens */
+        margin-left: auto; /* Align to the right */
         z-index: 1000;
     }
 
     .menu {
-        display: none; 
+        display: none; /* Hide the menu by default on small screens */
         position: absolute;
         top: 100%;
         left: 0;
-        width: 100%; 
-        background-color: #004d00; 
-        flex-direction: column;
+        width: 100%; /* Full width for mobile */
+        background-color: #004d00; /* Background color for the dropdown */
+        flex-direction: column; /* Align items vertically */
         text-align: center;
     }
 
     .menu.show {
-        display: flex; 
+        display: flex; /* Show menu when hamburger is clicked */
     }
 
     .navigation {
-        flex-direction: column; 
+        flex-direction: column; /* Align menu items vertically */
     }
 
     .navigation li {
-        border-bottom: 1px solid #ffffff; 
+        border-bottom: 1px solid #ffffff; /* Add separation lines between items */
     }
 
     .nav-right {
-        display: none; 
+        display: none; /* Hide right side buttons on small screens */
+    }
 
     .navbar {
         flex-direction: column;
@@ -177,7 +180,7 @@
     .navigation a {
         padding: 10px;
         text-align: left;
-        width: 100%; 
+        width: 100%; /* Full width for mobile */
     }
 }
 
@@ -233,7 +236,7 @@
         h2 {
             margin-bottom: 20px;
             font-size: 2rem;
-            color: #004d00; 
+            color: #004d00; /* Updated color */
         }
 
         p {
@@ -242,7 +245,7 @@
             margin-bottom: 20px;
         }
 
-       .about-content {
+        .about-content {
             margin-bottom: 30px;
         }
 
@@ -311,7 +314,7 @@
 }
 
 .service-item {
-    flex: 1 1 200px; 
+    flex: 1 1 200px; /* Adjust the width as needed */
     max-width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -332,19 +335,19 @@
     font-size: 1.25rem;
 }
 .about-content {
-            background-color: #faf0ff;
-            padding: 40px;
+            background-color: #faf0ff; /* Light blue */
+            padding: 20px;
         }
         .mission {
-            background-color: #ffc4c4; 
+            background-color: #ffc4c4; /* Bisque */
             padding: 20px;
         }
         .vision {
-            background-color: rgb(170, 255, 0);
+            background-color: rgb(170, 255, 0); /* Light goldenrod yellow */
             padding: 20px;
         }
         .values {
-            background-color: #e6e6fa; 
+            background-color: #e6e6fa; /* Lavender */
             padding: 20px;
         }
        /* Footer Styles */
@@ -424,7 +427,7 @@ footer a:hover {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  align-items: center; 
+  align-items: center; /* Center cards horizontally */
 
 }
 
@@ -434,27 +437,27 @@ footer a:hover {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  height: 350px;
-  width: 1000px;
-  max-width: 90vw; 
+  height: 350px; /* Height for content fit */
+  width: 1000px; /* Expanded width for more content */
+  max-width: 90vw; /* Ensure cards do not exceed viewport width */
   border-radius: 10px;
   color: rgb(0, 0, 0);
   cursor: pointer;
   transition: 400ms;
-  padding: 15px; 
-  box-sizing: border-box; 
+  padding: 15px; /* Padding inside the card */
+  box-sizing: border-box; /* Include padding in width and height */
 }
 
 .card p.tip {
   font-size: 22px;
   font-weight: bold;
-  margin: 0;
+  margin: 0; /* Remove margin for better alignment */
 }
 
 .card p.second-text {
-  font-size: 15px; 
-  margin-top: 10px; 
-  line-height: 1.5; 
+  font-size: 15px; /* Slightly larger for readability */
+  margin-top: 10px; /* Add space between tip and text */
+  line-height: 1.5; /* Improve text readability */
 }
 
 .card:hover {
@@ -555,7 +558,7 @@ footer a:hover {
   z-index: 1;
   pointer-events: none;
   list-style: none;
-  background-color: #004d00;
+  background-color: #004d00; /* Dark background color */
 }
 
 .menu-s .item:hover .submenu {
@@ -621,7 +624,7 @@ footer a:hover {
 
 .submenu .submenu-link:hover {
     color: #000000;
-    z-index: 2000;
+    z-index: 2000; /* Ensure the submenu is on top when hovered */
 }
 
 footer {
@@ -635,7 +638,7 @@ footer {
             margin: 0;
             color: #fff;
         }
-    
+    }
     </style>
 </head>
 <body>
@@ -702,6 +705,13 @@ footer {
                     groceries and exceptional customer service to our community.<br>
                 <br>Established in 2024, we have quickly become a trusted name in the community, known for our wide range of products, 
                 competitive prices, and reliable delivery services. Our goal is to make grocery shopping easier and more enjoyable for everyone.</p>
+                <p class="tip">Ka ga Orefile General Dealer</p>
+                <p class="second-text">
+                    orefile Digital Tuckshop ke lebenkele la korosari la mo lefelong la lona le le nang le dilo tsa segompieno. Re kopanya tsela e e motlhofo ya go dirisa Internet<br>
+                    go reka ka tsela e e tshwanang le ya lebenkele la mo lefelong la lona, go go tlhomamisetsa gore o tla bona dilo tse di molemo go gaisa tsotlhe. <br>Boikaelelo jwa rona ke go tlamela batho ba rona ka dijo tsa boleng jo bo kwa godimo le go ba direla ka tsela e e tlhomologileng.
+
+                     E re ka re tlhomilwe ka 2024, ka bonako fela re ne ra nna leina le le ikanyegang mo setšhabeng, re itsege ka mefuta e mentsi ya dilo tse re di rekang, ditlhwatlhwa tsa rona tse di gaisanang le tsa ba bangwe le ditirelo tse di ikanyegang tsa go tsamaisa dilwana.
+                    <br> Mokgele wa rona ke go dira gore go reka dijo go nne motlhofo e bile go itumedise mongwe le mongwe.</p>
             </div>
             <div class="card blue">
                 <p class="tip">Our Mission</p>
