@@ -31,7 +31,7 @@
         }
 /* Base header styling */
 .header {
-    background-color: #003300; /* Green background for the header */
+    background-color: #003300; 
     color: #ffffff;
     position: relative;
     font-size: 18px;
@@ -62,7 +62,7 @@
 
 /* Show/hide hamburger menu */
 .hamburger-menu {
-    display: none; /* Hide by default */
+    display: none; 
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
@@ -72,7 +72,7 @@
 
 /* Hide menu by default */
 .menu {
-    display: flex; /* Show menu items horizontally */
+    display: flex; 
     align-items: center;
 }
 
@@ -81,7 +81,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Horizontally align items */
+    display: flex; 
 }
 
 .navigation li {
@@ -91,16 +91,16 @@
 .navigation a {
     display: inline-block;
     padding: 10px 15px;
-    border-radius: 5px; /* Adjust the value for more or less rounding */
+    border-radius: 5px;
     text-decoration: none;
-    color: #ffffff; /* Adjust text color as needed */
+    color: #ffffff; 
 }
 
 /* Hover effect */
 .navigation a:hover {
     height: 40px;
-    background-color: #880808; /* Change background on hover */
-    color: #ffffff; /* Ensure text color remains readable */
+    background-color: #880808;
+    color: #ffffff; 
 }
 
 /* Right side buttons */
@@ -122,56 +122,56 @@
 }
 
 .btn-login {
-    background-color: #880808; /* Blue background for login */
+    background-color: #880808; 
 }
 
 .btn-signup {
-    background-color: #0047AB; /* Green background for sign-up */
+    background-color:  #003300;
 }
 
 .btn:hover {
-    background-color: #004d00;
+    background-color: #000;
     color: white;
 }
 
 /* Responsive styling for smaller screens */
 @media (max-width: 768px) {
     .header {
-        font-size: 16px; /* Adjust font size for smaller screens */
-        padding: 8px; /* Reduce padding for smaller screens */
+        font-size: 16px; 
+        padding: 8px; 
     }
 
     .hamburger-menu {
-        display: block; /* Show on small screens */
-        margin-left: auto; /* Align to the right */
+        display: block; 
+        margin-left: auto; 
          z-index: 1000;
     }
 
     .menu {
-        display: none; /* Hide the menu by default on small screens */
+        display: none; 
         position: absolute;
         top: 100%;
         left: 0;
-        width: 100%; /* Full width for mobile */
-        background-color: #003300; /* Background color for the dropdown */
-        flex-direction: column; /* Align items vertically */
+        width: 100%; 
+        background-color: #003300; 
+        flex-direction: column; 
         text-align: center;
     }
 
     .menu.show {
-        display: flex; /* Show menu when hamburger is clicked */
+        display: flex; 
     }
 
     .navigation {
-        flex-direction: column; /* Align menu items vertically */
+        flex-direction: column;
     }
 
     .navigation li {
-        border-bottom: 1px solid #ffffff; /* Add separation lines between items */
+        border-bottom: 1px solid #ffffff;
     }
 
     .nav-right {
-        display: none; /* Hide right side buttons on small screens */
+        display: none; 
     }
 
     .navbar {
@@ -182,7 +182,7 @@
     .navigation a {
         padding: 10px;
         text-align: left;
-        width: 100%; /* Full width for mobile */
+        width: 100%; 
     }
 }
 
@@ -191,7 +191,7 @@
             padding: 50px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            height: 400px; /* Adjust height as needed */
+            height: 400px;
             background-size: cover;
             background-position: center;
             color: #000000;
@@ -206,7 +206,7 @@
         section h2, section p {
             margin: 0;
             padding: 0;
-            z-index: 1; /* Ensure text is above background */
+            z-index: 1; 
         }
 
         h2 {
@@ -252,7 +252,7 @@
             margin: 50px auto;
             overflow: hidden;
             border-radius: 8px;
-            height: 100vh; /* Adjust height as needed */
+            height: 100vh; 
         }
 
         .carousel-images {
@@ -264,10 +264,10 @@
             background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
-            height: 100%; /* Ensure images fill the height of the carousel */
-    width: auto; /* Maintain aspect ratio and fit within width */
-    max-width: 100%; /* Prevent images from exceeding carousel width */
-    object-fit: cover; /* Ensure images cover the container while maintaining aspect ratio */
+            height: 100%; 
+    width: auto; 
+    max-width: 100%; 
+    object-fit: cover; 
     border-radius: 8px;
         }
 
@@ -344,7 +344,7 @@
 .guide-container {
     max-width: 1200px;
     margin: 0 auto;
-    background-color: none; /* Ensure the background color covers the full width */
+    background-color: none; 
     padding: 20px;
 }
 
@@ -375,23 +375,23 @@
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
     #step-by-step-guide {
-        padding: 50px 10px; /* Adjust padding for smaller screens */
+        padding: 50px 10px;
     }
 
     .guide-container {
-        padding: 10px; /* Adjust container padding for smaller screens */
+        padding: 10px; 
     }
 
     .guide-steps h3 {
-        font-size: 1.25rem; /* Adjust font size for smaller screens */
+        font-size: 1.25rem;
     }
 
     .guide-steps p {
-        font-size: 0.875rem; /* Adjust font size for smaller screens */
+        font-size: 0.875rem; 
     }
 
     .h4 {
-        font-size: 16px; /* Adjust font size for smaller screens */
+        font-size: 16px; 
     }
 }
 
@@ -462,7 +462,7 @@
   width: 100%;
   overflow: hidden;
 
-  background-color: #003300; /* Dark background color */
+  background-color: #003300; 
   opacity: 0;
   visibility: hidden;
   transform: translateY(-12px);
@@ -500,7 +500,7 @@
   width: 100%;
   transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
   color: #ffffff;
-  z-index: 2000; /* Ensure the submenu is on top when hovered */
+  z-index: 2000; 
  
 }
 
@@ -512,7 +512,7 @@
   text-align: center;
   transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
   color: #ffffff; 
-  z-index: 2000; /* Ensure the submenu is on top when hovered */
+  z-index: 2000; 
 }
 
 .submenu .submenu-item:last-child .submenu-link {
@@ -540,59 +540,59 @@
 
 .submenu .submenu-link:hover {
   color: #000000;
-  z-index: 2000; /* Ensure the submenu is on top when hovered */
+  z-index: 2000;
 }
 /* Footer */
 .footer {
-  background-color: #004d00; /* Dark background */
-  color: #fff; /* White text */
-  padding: 20px 0; /* Padding around the footer */
-  font-family: Arial, sans-serif; /* Font style */
+  background-color: #004d00; 
+  color: #fff; 
+  padding: 20px 0; 
+  font-family: Arial, sans-serif; 
 }
 
 .footer .row {
-  display: flex; /* Flexbox layout */
-  justify-content: space-between; /* Space out columns */
-  max-width: 1200px; /* Max width for the footer */
-  margin: 0 auto; /* Center align */
-  padding: 0 20px; /* Padding on the sides */
+  display: flex; 
+  justify-content: space-between; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
 }
 
 .footer .col {
-  flex: 1; /* Equal width columns */
-  margin: 0 15px; /* Spacing between columns */
+  flex: 1; 
+  margin: 0 15px; 
 }
 
 .footer h4 {
-  margin-bottom: 15px; /* Space below headings */
-  font-size: 18px; /* Font size for headings */
+  margin-bottom: 15px;
+  font-size: 18px; 
 }
 
 .footer a {
-  display: block; /* Stack links */
-  color: #fff; /* White text color */
-  text-decoration: none; /* Remove underline */
-  margin-bottom: 10px; /* Space between links */
-  transition: color 0.3s; /* Smooth transition for color */
+  display: block; 
+  color: #fff;
+  text-decoration: none; 
+  margin-bottom: 10px; 
+  transition: color 0.3s;
 }
 
 .footer a:hover {
-  color: #880808; /* Change color on hover */
+  color: #880808; 
 }
 
 .footer .col span {
-  display: inline-block; /* Inline block for icons */
-  margin-right: 10px; /* Space between icons */
+  display: inline-block; 
+  margin-right: 10px; 
 }
 
 .footer .bx {
-  font-size: 24px; /* Icon size */
-  color: #fff; /* White icon color */
-  transition: color 0.3s; /* Smooth transition for color */
+  font-size: 24px; 
+  color: #fff;
+  transition: color 0.3s;
 }
 
 .footer .bx:hover {
-  color: #880808; /* Change color on hover */
+  color: #880808; 
 }
 
     </style>
@@ -747,7 +747,7 @@
             counter++;
         }
 
-        setInterval(autoSlide, 3000); // Change image every 3 seconds
+        setInterval(autoSlide, 3000); 
     </script>
 </body>
 </html>
