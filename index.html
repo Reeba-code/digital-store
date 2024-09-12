@@ -272,54 +272,7 @@
             background-color:#003300;
             color: #fff;
         }
-
-        .carousel {
-            position: relative;
-            max-width: 100%;
-            margin: 50px auto;
-            overflow: hidden;
-            border-radius: 8px;
-            height: 100vh; 
-        }
-
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-images img {
-            background-position: center center !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-            height: 100%; 
-    width: auto; 
-    max-width: 100%; 
-    object-fit: cover; 
-    border-radius: 8px;
-        }
-
-        .carousel-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .carousel-button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-
+        
         @media (max-width: 768px) {
             .nav-right {
                 display: none;
@@ -569,22 +522,28 @@
   color: #000000;
   z-index: 2000;
 }
-        .carousel {
-    width: 100%;
-    overflow: hidden;
+     .carousel {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    width: 100vw;            /* Full viewport width */
+    height: 100vh;           /* Full viewport height */
+    overflow: hidden;        /* Hide overflow to avoid scrolling */
     position: relative;
 }
 
 .carousel-images {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-images img {
-    width: 100%;
-    height: auto; /* Maintains the aspect ratio */
-    object-fit: contain; /* Ensures the entire image fits without being cropped */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;   /* Ensures no cropping, maintains aspect ratio */
 }
+
 
 /* Footer */
 .footer {
