@@ -569,6 +569,23 @@
   color: #000000;
   z-index: 2000;
 }
+        .carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto; /* Maintains the aspect ratio */
+    object-fit: contain; /* Ensures the entire image fits without being cropped */
+}
+
 /* Footer */
 .footer {
   background-color: #003300; 
